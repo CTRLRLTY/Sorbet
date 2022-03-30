@@ -1,0 +1,427 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/LevelSelection/LevelSelection.gd" type="Script" id=1]
+
+[node name="LevelSelection" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Background" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VBC" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="P" type="Panel" parent="VBC"]
+margin_right = 360.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="Back" type="Button" parent="VBC/P"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 68.0
+margin_bottom = 37.0
+text = "Back"
+
+[node name="Levels" type="GridContainer" parent="VBC"]
+margin_top = 44.0
+margin_right = 360.0
+margin_bottom = 680.0
+columns = 4
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Level" type="Button" parent="VBC/Levels"]
+margin_right = 87.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+text = "Test"
+
+[node name="Level2" type="Button" parent="VBC/Levels"]
+margin_left = 91.0
+margin_right = 178.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level3" type="Button" parent="VBC/Levels"]
+margin_left = 182.0
+margin_right = 269.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level4" type="Button" parent="VBC/Levels"]
+margin_left = 273.0
+margin_right = 360.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level5" type="Button" parent="VBC/Levels"]
+margin_top = 64.0
+margin_right = 87.0
+margin_bottom = 124.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level6" type="Button" parent="VBC/Levels"]
+margin_left = 91.0
+margin_top = 64.0
+margin_right = 178.0
+margin_bottom = 124.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level7" type="Button" parent="VBC/Levels"]
+margin_left = 182.0
+margin_top = 64.0
+margin_right = 269.0
+margin_bottom = 124.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level8" type="Button" parent="VBC/Levels"]
+margin_left = 273.0
+margin_top = 64.0
+margin_right = 360.0
+margin_bottom = 124.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level9" type="Button" parent="VBC/Levels"]
+margin_top = 128.0
+margin_right = 87.0
+margin_bottom = 188.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level10" type="Button" parent="VBC/Levels"]
+margin_left = 91.0
+margin_top = 128.0
+margin_right = 178.0
+margin_bottom = 188.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level11" type="Button" parent="VBC/Levels"]
+margin_left = 182.0
+margin_top = 128.0
+margin_right = 269.0
+margin_bottom = 188.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level12" type="Button" parent="VBC/Levels"]
+margin_left = 273.0
+margin_top = 128.0
+margin_right = 360.0
+margin_bottom = 188.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level13" type="Button" parent="VBC/Levels"]
+margin_top = 192.0
+margin_right = 87.0
+margin_bottom = 252.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level14" type="Button" parent="VBC/Levels"]
+margin_left = 91.0
+margin_top = 192.0
+margin_right = 178.0
+margin_bottom = 252.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level15" type="Button" parent="VBC/Levels"]
+margin_left = 182.0
+margin_top = 192.0
+margin_right = 269.0
+margin_bottom = 252.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level16" type="Button" parent="VBC/Levels"]
+margin_left = 273.0
+margin_top = 192.0
+margin_right = 360.0
+margin_bottom = 252.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level17" type="Button" parent="VBC/Levels"]
+margin_top = 256.0
+margin_right = 87.0
+margin_bottom = 316.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level18" type="Button" parent="VBC/Levels"]
+margin_left = 91.0
+margin_top = 256.0
+margin_right = 178.0
+margin_bottom = 316.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level19" type="Button" parent="VBC/Levels"]
+margin_left = 182.0
+margin_top = 256.0
+margin_right = 269.0
+margin_bottom = 316.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level20" type="Button" parent="VBC/Levels"]
+margin_left = 273.0
+margin_top = 256.0
+margin_right = 360.0
+margin_bottom = 316.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level21" type="Button" parent="VBC/Levels"]
+margin_top = 320.0
+margin_right = 87.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level22" type="Button" parent="VBC/Levels"]
+margin_left = 91.0
+margin_top = 320.0
+margin_right = 178.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level23" type="Button" parent="VBC/Levels"]
+margin_left = 182.0
+margin_top = 320.0
+margin_right = 269.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level24" type="Button" parent="VBC/Levels"]
+margin_left = 273.0
+margin_top = 320.0
+margin_right = 360.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level25" type="Button" parent="VBC/Levels"]
+margin_top = 384.0
+margin_right = 87.0
+margin_bottom = 444.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level26" type="Button" parent="VBC/Levels"]
+margin_left = 91.0
+margin_top = 384.0
+margin_right = 178.0
+margin_bottom = 444.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level27" type="Button" parent="VBC/Levels"]
+margin_left = 182.0
+margin_top = 384.0
+margin_right = 269.0
+margin_bottom = 444.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level28" type="Button" parent="VBC/Levels"]
+margin_left = 273.0
+margin_top = 384.0
+margin_right = 360.0
+margin_bottom = 444.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level29" type="Button" parent="VBC/Levels"]
+margin_top = 448.0
+margin_right = 87.0
+margin_bottom = 508.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level30" type="Button" parent="VBC/Levels"]
+margin_left = 91.0
+margin_top = 448.0
+margin_right = 178.0
+margin_bottom = 508.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level31" type="Button" parent="VBC/Levels"]
+margin_left = 182.0
+margin_top = 448.0
+margin_right = 269.0
+margin_bottom = 508.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level32" type="Button" parent="VBC/Levels"]
+margin_left = 273.0
+margin_top = 448.0
+margin_right = 360.0
+margin_bottom = 508.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level33" type="Button" parent="VBC/Levels"]
+margin_top = 512.0
+margin_right = 87.0
+margin_bottom = 572.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level34" type="Button" parent="VBC/Levels"]
+margin_left = 91.0
+margin_top = 512.0
+margin_right = 178.0
+margin_bottom = 572.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level35" type="Button" parent="VBC/Levels"]
+margin_left = 182.0
+margin_top = 512.0
+margin_right = 269.0
+margin_bottom = 572.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level36" type="Button" parent="VBC/Levels"]
+margin_left = 273.0
+margin_top = 512.0
+margin_right = 360.0
+margin_bottom = 572.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level37" type="Button" parent="VBC/Levels"]
+margin_top = 576.0
+margin_right = 87.0
+margin_bottom = 636.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level38" type="Button" parent="VBC/Levels"]
+margin_left = 91.0
+margin_top = 576.0
+margin_right = 178.0
+margin_bottom = 636.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level39" type="Button" parent="VBC/Levels"]
+margin_left = 182.0
+margin_top = 576.0
+margin_right = 269.0
+margin_bottom = 636.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[node name="Level40" type="Button" parent="VBC/Levels"]
+margin_left = 273.0
+margin_top = 576.0
+margin_right = 360.0
+margin_bottom = 636.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+disabled = true
+text = "-"
+
+[connection signal="pressed" from="VBC/P/Back" to="." method="_on_Back_pressed"]
