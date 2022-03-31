@@ -24,3 +24,4 @@ func set_ui_font_color(color: Color) -> void:
 	ui_font_color = color
 	
 	find_node("Label").add_color_override("font_color", color)
+	find_node("TextureRect").modulate = color
