@@ -4,6 +4,7 @@ enum MilestoneType {
 	EMPTY,
 	SUCCESS,
 	FAIL,
+	FLAG_EMPTY
 }
 
 onready var hbox: HBoxContainer = $HBox
@@ -14,7 +15,7 @@ func _ready() -> void:
 	add_milestone(MilestoneType.EMPTY)
 	add_milestone(MilestoneType.EMPTY)
 	add_milestone(MilestoneType.EMPTY)
-	add_milestone(MilestoneType.EMPTY)
+	add_milestone(MilestoneType.FLAG_EMPTY)
 
 
 func milestone_count() -> int:
@@ -62,5 +63,7 @@ func _milestone_texture(milestone_type: int) -> Texture:
 			texture = load("res://Resources/Textures/milestone_success.png")
 		MilestoneType.FAIL:
 			texture = load("res://Resources/Textures/milestone_fail.png")
+		MilestoneType.FLAG_EMPTY:
+			texture = load("res://Resources/Textures/milestone_flag_empty.png")
 	
 	return texture
