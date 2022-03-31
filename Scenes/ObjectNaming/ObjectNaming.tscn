@@ -232,9 +232,9 @@ align = 1
 valign = 1
 
 [node name="Milestone" type="CenterContainer" parent="."]
-margin_top = 406.0
+margin_top = 441.0
 margin_right = 360.0
-margin_bottom = 446.0
+margin_bottom = 481.0
 script = ExtResource( 12 )
 
 [node name="HBox" type="HBoxContainer" parent="Milestone"]
