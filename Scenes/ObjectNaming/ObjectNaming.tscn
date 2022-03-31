@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Textures/cow.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/ObjectNaming/TimerBar.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/ObjectNaming/MultipleChoice.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/ObjectNaming/Choices.gd" type="Script" id=4]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Resources/Textures/Progress.png" type="Texture" id=6]
 [ext_resource path="res://Resources/Icons/deadline.png" type="Texture" id=7]
 [ext_resource path="res://Resources/Styleboxes/RootBackground.tres" type="StyleBox" id=9]
+[ext_resource path="res://Scenes/ObjectNaming/Milestone.gd" type="Script" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 3.0
@@ -83,40 +84,37 @@ script = ExtResource( 2 )
 [node name="Timer" type="Timer" parent="TimerProgress/ProgressBar/TimerBar"]
 one_shot = true
 
-[node name="Object" type="PanelContainer" parent="."]
+[node name="ObjectRect" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -60.0
-margin_top = -135.0
-margin_right = 60.0
-margin_bottom = -15.0
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="TextureRect" type="TextureRect" parent="Object"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 113.0
-margin_bottom = 113.0
+margin_left = -175.0
+margin_top = -287.0
+margin_right = 175.0
+margin_bottom = 63.0
+rect_min_size = Vector2( 350, 350 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 1 )
-expand = true
 __meta__ = {
+"_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="ObjectLabel" type="Label" parent="Object/TextureRect"]
-margin_top = 129.0
-margin_right = 106.0
-margin_bottom = 143.0
+[node name="ObjectLabel" type="Label" parent="ObjectRect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -53.0
+margin_top = -14.0
+margin_right = 53.0
 align = 1
 valign = 1
 
 [node name="MultipleChoice" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
@@ -232,5 +230,18 @@ anchor_bottom = 1.0
 text = "Something  "
 align = 1
 valign = 1
+
+[node name="Milestone" type="CenterContainer" parent="."]
+margin_top = 406.0
+margin_right = 360.0
+margin_bottom = 446.0
+script = ExtResource( 12 )
+
+[node name="HBox" type="HBoxContainer" parent="Milestone"]
+margin_left = 180.0
+margin_top = 20.0
+margin_right = 180.0
+margin_bottom = 20.0
+custom_constants/separation = 0
 
 [connection signal="timeout" from="TimerProgress/ProgressBar/TimerBar/Timer" to="TimerProgress/ProgressBar/TimerBar" method="_on_Timer_timeout"]
