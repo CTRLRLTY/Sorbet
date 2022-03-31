@@ -1,21 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/LevelSelection/LevelSelection.gd" type="Script" id=1]
 [ext_resource path="res://Resources/fonts/Bungee-Regular-20.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Resources/Styleboxes/PurpleButton.stylebox" type="StyleBox" id=3]
 [ext_resource path="res://Resources/Styleboxes/RootBackground.tres" type="StyleBox" id=4]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.67451, 0.819608, 0.466667, 1 )
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color( 0.541176, 0.678431, 0.364706, 1 )
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+[ext_resource path="res://Resources/Buttons/FarmLevel.png" type="Texture" id=5]
+[ext_resource path="res://Resources/fonts/Bungee-Regular-32.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Resources/Buttons/LockedLevel.png" type="Texture" id=7]
 
 [node name="LevelSelection" type="Control"]
 anchor_right = 1.0
@@ -32,33 +23,71 @@ __meta__ = {
 
 [node name="LevelSelect" type="Label" parent="."]
 anchor_right = 1.0
-margin_top = 36.0
-margin_bottom = 57.0
+margin_top = 37.0
+margin_bottom = 58.0
 custom_colors/font_color = Color( 0.356863, 0.333333, 0.427451, 1 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 6 )
 text = "Level Select"
 align = 1
 
 [node name="VBC" type="VBoxContainer" parent="."]
 margin_left = 30.0
-margin_top = 110.0
+margin_top = 106.0
 margin_right = 330.0
-margin_bottom = 525.0
+margin_bottom = 685.0
 rect_min_size = Vector2( 300, 0 )
+rect_clip_content = true
 size_flags_horizontal = 6
 custom_constants/separation = 25
 
-[node name="Level" type="Button" parent="VBC"]
+[node name="Farm" type="TextureButton" parent="VBC"]
 margin_right = 300.0
-margin_bottom = 120.0
-rect_min_size = Vector2( 0, 120 )
-custom_styles/normal = SubResource( 1 )
+margin_bottom = 126.0
+rect_min_size = Vector2( 300, 126 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
+expand = true
+
+[node name="Locked" type="TextureButton" parent="VBC"]
+margin_top = 151.0
+margin_right = 300.0
+margin_bottom = 277.0
+rect_min_size = Vector2( 300, 126 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+expand = true
+
+[node name="Locked2" type="TextureButton" parent="VBC"]
+margin_top = 302.0
+margin_right = 300.0
+margin_bottom = 428.0
+rect_min_size = Vector2( 300, 126 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+expand = true
+
+[node name="Locked3" type="TextureButton" parent="VBC"]
+margin_top = 453.0
+margin_right = 300.0
+margin_bottom = 579.0
+rect_min_size = Vector2( 300, 126 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+expand = true
 
 [node name="Back" type="Button" parent="."]
 margin_left = 30.0
-margin_top = 567.0
+margin_top = 730.0
 margin_right = 330.0
-margin_bottom = 617.0
+margin_bottom = 781.0
 rect_min_size = Vector2( 300, 51 )
 size_flags_horizontal = 0
 size_flags_vertical = 10

@@ -326,11 +326,10 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -150.0
-margin_top = 247.0
+margin_top = 330.0
 margin_right = 150.0
-margin_bottom = 298.0
+margin_bottom = 381.0
 rect_min_size = Vector2( 300, 51 )
-rect_pivot_offset = Vector2( -82, -298 )
 custom_styles/panel = SubResource( 7 )
 script = ExtResource( 15 )
 
