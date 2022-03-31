@@ -1,7 +1,7 @@
 extends Control
 
-onready var login_screen: Control = $LoginScreen
-onready var user_screen: Control = $UserScreen
+onready var login_screen: Control = find_node("LoginScreen")
+onready var user_screen: Control = find_node("UserScreen")
 
 
 # Called when the node enters the scene tree for the first time.
