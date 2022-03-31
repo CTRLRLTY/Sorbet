@@ -39,34 +39,32 @@ custom_fonts/font = ExtResource( 2 )
 text = "Level Select"
 align = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 110.0
-custom_constants/margin_bottom = 20
-
-[node name="VBC" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBC" type="VBoxContainer" parent="."]
 margin_left = 30.0
+margin_top = 110.0
 margin_right = 330.0
-margin_bottom = 510.0
+margin_bottom = 525.0
+rect_min_size = Vector2( 300, 0 )
 size_flags_horizontal = 6
 custom_constants/separation = 25
 
-[node name="Level" type="Button" parent="MarginContainer/VBC"]
+[node name="Level" type="Button" parent="VBC"]
 margin_right = 300.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 0, 120 )
 custom_styles/normal = SubResource( 1 )
 
-[node name="Back" type="Button" parent="MarginContainer/VBC"]
-margin_top = 460.0
-margin_right = 300.0
-margin_bottom = 510.0
-rect_min_size = Vector2( 300, 50 )
+[node name="Back" type="Button" parent="."]
+margin_left = 30.0
+margin_top = 567.0
+margin_right = 330.0
+margin_bottom = 617.0
+rect_min_size = Vector2( 300, 51 )
 size_flags_horizontal = 0
 size_flags_vertical = 10
+custom_colors/font_color = Color( 0.666667, 0.623529, 0.792157, 1 )
 custom_fonts/font = ExtResource( 2 )
 custom_styles/normal = ExtResource( 3 )
 text = "BACK TO MENU"
 
-[connection signal="pressed" from="MarginContainer/VBC/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
