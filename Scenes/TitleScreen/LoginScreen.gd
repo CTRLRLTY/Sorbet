@@ -3,7 +3,7 @@ extends Control
 signal guest_login
 
 
-onready var main: Control = $MainPanel
+onready var main: Control = $Main
 onready var login: Control = $LoginPanel
 onready var signup: Control = $SignupPanel
 
