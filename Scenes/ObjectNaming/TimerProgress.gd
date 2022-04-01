@@ -4,22 +4,29 @@ signal timeout
 
 
 onready var timer_bar: TextureProgress = find_node("TimerBar")
+onready var timer: Timer = timer_bar.timer
 
 
 func _ready() -> void:
-	timer_bar.timer.connect("timeout", self, "_on_timer_timeout")
+	timer.connect("timeout", self, "_on_timer_timeout")
 	
 	start()
 
 
-func start() -> void:
+func start(time_sec := timer_bar.max_value) -> void:
+	if time_sec <= 0.0:
+		end()
+	
+		return
+	
 	set_process(true)
 	
-	timer_bar.timer.start(timer_bar.max_value)
+	timer.start(time_sec)
 
 
-func reset() -> void:
-	start()
+func time_left() -> float:
+	return timer.time_left
+
 
 
 func end() -> void:
@@ -28,9 +35,6 @@ func end() -> void:
 
 
 func _process(delta: float) -> void:
-#	if timer.time_left
-	var timer: Timer = timer_bar.timer
-
 	timer_bar.value = timer.time_left
 	timer_bar.label.text = str(stepify(timer.time_left, 0.1)).pad_decimals(1)
 	

@@ -46,8 +46,9 @@ const NAME_LIST := [
 
 var object_name: String
 
-var milestone_position := 0
+var milestone_position := 0 setget set_milestone_position
 var milestone_steps := 5
+var decrease_on_wrong_amount := 2.0
 
 
 var _name_bag: RNGBagSlot
@@ -60,7 +61,9 @@ onready var milestone: Control = $Milestone
 
 func _ready() -> void:
 	_name_bag = RNGBagSlot.new(NAME_LIST)
+	
 	modes.multi_choice.connect("choice_selected", self, "_on_choice_selected")
+	modes.multi_choice.timer_progress.connect("timeout", self, "_on_timer_timeout")
 	
 	for step in range(milestone_steps):
 		milestone.add_milestone(milestone.MilestoneType.EMPTY)
@@ -101,16 +104,8 @@ func randomize_object() -> void:
 	modes.multi_choice.set_choices(choices)
 
 
-func _on_choice_selected(choice: String) -> void:
-	if choice == object_name:
-		milestone.set_milestone_type(milestone_position, 
-				milestone.MilestoneType.SUCCESS)
-	else:
-		milestone.set_milestone_type(milestone_position, 
-				milestone.MilestoneType.FAIL)
-	
-	milestone_position += 1
-	
+func set_milestone_position(pos: int) -> void:
+	milestone_position = pos
 	var flag_reached := milestone_position == milestone_steps
 	
 	if flag_reached:
@@ -118,4 +113,25 @@ func _on_choice_selected(choice: String) -> void:
 	else:
 		randomize_object()
 		
-		modes.multi_choice.timer_progress.reset()
+		modes.multi_choice.timer_progress.start()
+
+
+func _on_choice_selected(choice: String) -> void:
+	if choice == object_name:
+		milestone.set_milestone_type(milestone_position, 
+				milestone.MilestoneType.SUCCESS)
+				
+		self.milestone_position += 1
+	else:
+		var time_left = modes.multi_choice.timer_progress.time_left()
+		var time_sec: float = max(time_left - decrease_on_wrong_amount, 0)
+		
+		modes.multi_choice.timer_progress.start(time_sec)
+
+
+func _on_timer_timeout() -> void:
+	milestone.set_milestone_type(milestone_position, 
+			milestone.MilestoneType.FAIL)
+
+	self.milestone_position += 1
+
