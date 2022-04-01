@@ -1,9 +1,9 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Resources/Animals/cow.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/ObjectNaming/TimerBar.gd" type="Script" id=2]
 [ext_resource path="res://Resources/Textures/cross.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/ObjectNaming/Choices.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/ObjectNaming/MultiChoice.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/ObjectNaming/ObjectNaming.gd" type="Script" id=5]
 [ext_resource path="res://Resources/Textures/Progress.png" type="Texture" id=6]
 [ext_resource path="res://Resources/Icons/deadline.png" type="Texture" id=7]
@@ -14,7 +14,9 @@
 [ext_resource path="res://Scenes/ObjectNaming/Milestone.gd" type="Script" id=12]
 [ext_resource path="res://Resources/fonts/Bungee-Regular-20.tres" type="DynamicFont" id=13]
 [ext_resource path="res://Scenes/ObjectNaming/Crosses.gd" type="Script" id=14]
+[ext_resource path="res://Scenes/ObjectNaming/Choices.gd" type="Script" id=15]
 [ext_resource path="res://Resources/Styleboxes/UnderProgress.stylebox" type="StyleBox" id=16]
+[ext_resource path="res://Scenes/ObjectNaming/Modes.gd" type="Script" id=17]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.788235, 0.788235, 0.788235, 1 )
@@ -86,6 +88,7 @@ custom_constants/separation = 0
 [node name="Modes" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 17 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -93,6 +96,7 @@ __meta__ = {
 [node name="MultiChoice" type="Control" parent="Modes"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -111,7 +115,7 @@ size_flags_vertical = 3
 custom_constants/vseparation = 16
 custom_constants/hseparation = 16
 columns = 2
-script = ExtResource( 4 )
+script = ExtResource( 15 )
 
 [node name="Choice" type="Button" parent="Modes/MultiChoice/Choices"]
 margin_right = 134.0
@@ -285,4 +289,5 @@ margin_right = 277.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[connection signal="choice_pressed" from="Modes/MultiChoice/Choices" to="Modes/MultiChoice" method="_on_choice_pressed"]
 [connection signal="timeout" from="Modes/MultiChoice/TimerProgress/ProgressBar/TimerBar/Timer" to="Modes/MultiChoice/TimerProgress/ProgressBar/TimerBar" method="_on_Timer_timeout"]

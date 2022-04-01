@@ -1,16 +1,5 @@
 extends Control
 
-const NAME_LIST := [
-	"cow",
-	"dog",
-	"horse",
-	"chicken",
-	"duck",
-	"sheep",
-	"cat",
-	"rabbit",
-]
-
 # Equal RNG Bagging algorithm
 class RNGBagSlot:
 	var item_bag : Array
@@ -43,11 +32,24 @@ class RNGBagSlot:
 		return selected_item
 
 
+const NAME_LIST := [
+	"cow",
+	"dog",
+	"horse",
+	"chicken",
+	"duck",
+	"sheep",
+	"cat",
+	"rabbit",
+]
+
+
 var object_name: String
 var name_bag: RNGBagSlot
 
 
 onready var object_rect: TextureRect = $ObjectRect
+onready var modes: Control = $Modes
 
 
 func _ready() -> void:
@@ -66,3 +68,22 @@ func randomize_object() -> void:
 	var texture: Texture = load(res_path)
 	
 	object_rect.texture = texture
+
+	var choice_count: int = modes.multi_choice.choice_count()
+	
+	var choices := []
+	var buf := NAME_LIST.duplicate()
+	
+	for idx in range(choice_count):
+		var i: int = randi() % buf.size()
+		
+		var oname: String = buf.pop_at(i)
+		choices.append(oname)
+	
+	# Does choices contain one solution?
+	if not choices.has(object_name):
+		# Place the answer randomly
+		var answer_index := randi() % choice_count
+		choices[answer_index] = object_name
+		
+	modes.multi_choice.set_choices(choices)
