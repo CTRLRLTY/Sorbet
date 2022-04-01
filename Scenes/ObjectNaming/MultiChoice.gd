@@ -4,6 +4,7 @@ signal choice_selected(choice)
 
 
 onready var choices: GridContainer = $Choices
+onready var timer_progress: Control = $TimerProgress
 
 
 func set_choices(text: PoolStringArray) -> void:

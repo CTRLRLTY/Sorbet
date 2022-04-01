@@ -110,3 +110,7 @@ func _on_choice_selected(choice: String) -> void:
 				milestone.MilestoneType.FAIL)
 	
 	milestone_position += 1
+	
+	randomize_object()
+	
+	modes.multi_choice.timer_progress.reset()

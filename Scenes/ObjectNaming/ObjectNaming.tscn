@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Resources/Animals/cow.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/ObjectNaming/TimerBar.gd" type="Script" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Scenes/ObjectNaming/Choices.gd" type="Script" id=15]
 [ext_resource path="res://Resources/Styleboxes/UnderProgress.stylebox" type="StyleBox" id=16]
 [ext_resource path="res://Scenes/ObjectNaming/Modes.gd" type="Script" id=17]
+[ext_resource path="res://Scenes/ObjectNaming/TimerProgress.gd" type="Script" id=18]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.788235, 0.788235, 0.788235, 1 )
@@ -212,6 +213,7 @@ margin_top = -367.0
 margin_right = 134.0
 margin_bottom = -319.0
 custom_constants/separation = 20
+script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -320,4 +322,3 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [connection signal="choice_pressed" from="Modes/MultiChoice/Choices" to="Modes/MultiChoice" method="_on_choice_pressed"]
-[connection signal="timeout" from="Modes/MultiChoice/TimerProgress/ProgressBar/TimerBar/Timer" to="Modes/MultiChoice/TimerProgress/ProgressBar/TimerBar" method="_on_Timer_timeout"]
