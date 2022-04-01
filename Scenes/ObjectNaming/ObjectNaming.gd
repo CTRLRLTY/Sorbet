@@ -48,6 +48,8 @@ var object_name: String
 
 var milestone_position := 0 setget set_milestone_position
 var milestone_steps := 5
+var milestone_step_point := 10
+
 var decrease_on_wrong_amount := 2.0
 
 
@@ -62,6 +64,8 @@ onready var buttons: Control = $BottomButtons
 
 
 func _ready() -> void:
+	RuntimeManager.point_accumulated = 0
+	
 	_name_bag = RNGBagSlot.new(NAME_LIST)
 	
 	modes.multi_choice.connect("choice_selected", self, "_on_choice_selected")
@@ -114,7 +118,9 @@ func set_milestone_position(pos: int) -> void:
 	var flag_reached := milestone_position == milestone_steps
 	
 	if flag_reached:
-		print_debug("Done!")
+		centered_dialog.popup_over_dialog()
+		
+		modes.multi_choice.timer_progress.stop()
 	else:
 		randomize_object()
 		
@@ -122,9 +128,16 @@ func set_milestone_position(pos: int) -> void:
 
 
 func _on_choice_selected(choice: String) -> void:
+	var flag_reached := milestone_position == milestone_steps
+
+	if flag_reached:
+		return
+	
 	if choice == object_name:
 		milestone.set_milestone_type(milestone_position, 
 				milestone.MilestoneType.SUCCESS)
+				
+		RuntimeManager.point_accumulated += milestone_step_point
 				
 		self.milestone_position += 1
 	else:
@@ -137,6 +150,8 @@ func _on_choice_selected(choice: String) -> void:
 func _on_timer_timeout() -> void:
 	milestone.set_milestone_type(milestone_position, 
 			milestone.MilestoneType.FAIL)
+	
+	RuntimeManager.point_accumulated -= milestone_step_point
 
 	self.milestone_position += 1
 

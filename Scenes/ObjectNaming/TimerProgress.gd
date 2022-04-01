@@ -24,6 +24,12 @@ func start(time_sec := timer_bar.max_value) -> void:
 	timer.start(time_sec)
 
 
+func stop() -> void:
+	set_process(false)
+	
+	timer.stop()
+
+
 func time_left() -> float:
 	return timer.time_left
 
