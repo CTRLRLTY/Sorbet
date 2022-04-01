@@ -96,4 +96,5 @@ custom_fonts/font = ExtResource( 2 )
 custom_styles/normal = ExtResource( 3 )
 text = "BACK TO MENU"
 
+[connection signal="pressed" from="VBC/Farm" to="." method="_on_Farm_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
