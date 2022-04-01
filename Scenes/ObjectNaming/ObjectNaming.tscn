@@ -392,6 +392,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="CenteredDialog" type="Panel" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 5 )
@@ -401,6 +402,7 @@ __meta__ = {
 }
 
 [node name="OverDialog" type="Control" parent="CenteredDialog"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 35 )
@@ -627,6 +629,7 @@ ui_font_color = Color( 0.847059, 0.964706, 0.678431, 1 )
 [connection signal="choice_pressed" from="Modes/MultiChoice/Choices" to="Modes/MultiChoice" method="_on_choice_pressed"]
 [connection signal="pressed" from="BottomButtons/Quit" to="BottomButtons" method="_on_Quit_pressed"]
 [connection signal="pressed" from="BottomButtons/Hint" to="BottomButtons" method="_on_Hint_pressed"]
+[connection signal="back_to_menu_request" from="CenteredDialog/OverDialog" to="CenteredDialog" method="_on_OverDialog_back_to_menu_request"]
 [connection signal="pressed" from="CenteredDialog/OverDialog/Back" to="CenteredDialog/OverDialog" method="_on_Back_pressed"]
 [connection signal="cancel" from="CenteredDialog/QuitDialog" to="CenteredDialog" method="_on_QuitDialog_cancel"]
 [connection signal="quit" from="CenteredDialog/QuitDialog" to="CenteredDialog" method="_on_QuitDialog_quit"]

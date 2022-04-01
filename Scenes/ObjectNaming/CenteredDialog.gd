@@ -37,3 +37,7 @@ func _on_QuitDialog_quit() -> void:
 
 func _on_QuitDialog_cancel() -> void:
 	hide()
+
+
+func _on_OverDialog_back_to_menu_request() -> void:
+	emit_signal("menu")

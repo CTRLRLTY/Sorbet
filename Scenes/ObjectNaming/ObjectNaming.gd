@@ -165,4 +165,4 @@ func _on_quit() -> void:
 
 
 func _on_menu() -> void:
-	SceneManager.goto_level_selection()
+	SceneManager.goto_title_screen()
