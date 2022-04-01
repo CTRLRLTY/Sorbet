@@ -45,15 +45,27 @@ const NAME_LIST := [
 
 
 var object_name: String
-var name_bag: RNGBagSlot
+
+var milestone_position := 0
+var milestone_steps := 5
+
+
+var _name_bag: RNGBagSlot
 
 
 onready var object_rect: TextureRect = $ObjectRect
 onready var modes: Control = $Modes
+onready var milestone: Control = $Milestone
 
 
 func _ready() -> void:
-	name_bag = RNGBagSlot.new(NAME_LIST)
+	_name_bag = RNGBagSlot.new(NAME_LIST)
+	modes.multi_choice.connect("choice_selected", self, "_on_choice_selected")
+	
+	for step in range(milestone_steps):
+		milestone.add_milestone(milestone.MilestoneType.EMPTY)
+	
+	milestone.set_milestone_type(milestone_steps - 1, milestone.MilestoneType.FLAG_EMPTY)
 	
 	randomize()
 	randomize_object()
@@ -62,7 +74,7 @@ func _ready() -> void:
 func randomize_object() -> void:
 	var TEX_DIR := "res://Resources/Animals/"
 	
-	object_name = name_bag.get_random_item()
+	object_name = _name_bag.get_random_item()
 	
 	var res_path := TEX_DIR + object_name + ".png"
 	var texture: Texture = load(res_path)
@@ -87,3 +99,14 @@ func randomize_object() -> void:
 		choices[answer_index] = object_name
 		
 	modes.multi_choice.set_choices(choices)
+
+
+func _on_choice_selected(choice: String) -> void:
+	if choice == object_name:
+		milestone.set_milestone_type(milestone_position, 
+				milestone.MilestoneType.SUCCESS)
+	else:
+		milestone.set_milestone_type(milestone_position, 
+				milestone.MilestoneType.FAIL)
+	
+	milestone_position += 1
