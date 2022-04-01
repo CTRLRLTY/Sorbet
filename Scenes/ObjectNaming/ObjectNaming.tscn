@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Resources/Textures/cow.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Animals/cow.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/ObjectNaming/TimerBar.gd" type="Script" id=2]
 [ext_resource path="res://Resources/Textures/cross.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/ObjectNaming/Choices.gd" type="Script" id=4]
@@ -205,6 +205,7 @@ margin_top = 3.0
 margin_right = 203.0
 margin_bottom = 24.0
 max_value = 10.0
+step = 0.01
 value = 10.0
 texture_progress = ExtResource( 6 )
 script = ExtResource( 2 )
