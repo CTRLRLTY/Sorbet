@@ -57,6 +57,8 @@ var _name_bag: RNGBagSlot
 onready var object_rect: TextureRect = $ObjectRect
 onready var modes: Control = $Modes
 onready var milestone: Control = $Milestone
+onready var centered_dialog: Control = $CenteredDialog
+onready var buttons: Control = $BottomButtons
 
 
 func _ready() -> void:
@@ -64,6 +66,7 @@ func _ready() -> void:
 	
 	modes.multi_choice.connect("choice_selected", self, "_on_choice_selected")
 	modes.multi_choice.timer_progress.connect("timeout", self, "_on_timer_timeout")
+	buttons.connect("quit_request", self, "_on_quit_request")
 	
 	for step in range(milestone_steps):
 		milestone.add_milestone(milestone.MilestoneType.EMPTY)
@@ -135,3 +138,6 @@ func _on_timer_timeout() -> void:
 
 	self.milestone_position += 1
 
+
+func _on_quit_request() -> void:
+	centered_dialog.popup_quit_dialog()

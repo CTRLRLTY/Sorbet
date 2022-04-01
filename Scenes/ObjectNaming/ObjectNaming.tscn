@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Resources/Animals/cow.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/ObjectNaming/TimerBar.gd" type="Script" id=2]
@@ -18,6 +18,16 @@
 [ext_resource path="res://Resources/Styleboxes/UnderProgress.stylebox" type="StyleBox" id=16]
 [ext_resource path="res://Scenes/ObjectNaming/Modes.gd" type="Script" id=17]
 [ext_resource path="res://Scenes/ObjectNaming/TimerProgress.gd" type="Script" id=18]
+[ext_resource path="res://Resources/Icons/Star.png" type="Texture" id=19]
+[ext_resource path="res://Resources/Styleboxes/PurpleButton.stylebox" type="StyleBox" id=20]
+[ext_resource path="res://Resources/Icons/restart.png" type="Texture" id=21]
+[ext_resource path="res://Resources/fonts/Bungee-Regular-15.tres" type="DynamicFont" id=22]
+[ext_resource path="res://Resources/Styleboxes/YellowButton.stylebox" type="StyleBox" id=23]
+[ext_resource path="res://Resources/Icons/checked_checkbox.png" type="Texture" id=24]
+[ext_resource path="res://Resources/Icons/cancel.png" type="Texture" id=25]
+[ext_resource path="res://Scenes/ObjectNaming/QuitDialog.gd" type="Script" id=26]
+[ext_resource path="res://Scenes/ObjectNaming/CenteredDialog.gd" type="Script" id=27]
+[ext_resource path="res://Scenes/ObjectNaming/BottomButtons.gd" type="Script" id=28]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.788235, 0.788235, 0.788235, 1 )
@@ -31,7 +41,22 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.909804, 0.909804, 0.890196, 0.792157 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.788235, 0.788235, 0.788235, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.6, 0.615686, 0.623529, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.898039, 0.843137, 0.317647, 1 )
 border_width_left = 3
 border_width_top = 3
@@ -40,7 +65,30 @@ border_width_bottom = 3
 border_color = Color( 0.807843, 0.721569, 0.254902, 1 )
 corner_radius_top_left = 3
 corner_radius_top_right = 3
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.921569, 0.341176, 0.341176, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.647059, 0.243137, 0.243137, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
 corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.788235, 0.788235, 0.788235, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.6, 0.615686, 0.623529, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="ObjectNaming" type="Control"]
 anchor_right = 1.0
@@ -240,9 +288,9 @@ margin_left = 3.0
 margin_top = 3.0
 margin_right = 203.0
 margin_bottom = 24.0
-max_value = 10.0
+max_value = 8.0
 step = 0.01
-value = 10.0
+value = 8.0
 texture_progress = ExtResource( 6 )
 script = ExtResource( 2 )
 
@@ -294,31 +342,183 @@ margin_right = 208.0
 margin_bottom = 54.0
 texture = ExtResource( 3 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="BottomButtons" type="HBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -142.0
-margin_top = 313.0
-margin_right = 135.0
-margin_bottom = 363.0
+margin_left = -143.5
+margin_top = 323.0
+margin_right = 143.5
+margin_bottom = 373.0
 size_flags_horizontal = 3
 custom_constants/separation = 18
+script = ExtResource( 28 )
 
-[node name="CButton" parent="HBoxContainer" instance=ExtResource( 8 )]
-margin_right = 129.0
+[node name="Quit" parent="BottomButtons" instance=ExtResource( 8 )]
+margin_right = 134.0
 rect_min_size = Vector2( 124, 50 )
 size_flags_vertical = 3
-custom_styles/normal = SubResource( 2 )
+custom_styles/normal = ExtResource( 23 )
 ui_icon = ExtResource( 10 )
 ui_text = "QUIT"
 ui_font_color = Color( 0.980392, 0.988235, 0.701961, 1 )
 
-[node name="Button" parent="HBoxContainer" instance=ExtResource( 11 )]
-margin_left = 147.0
-margin_right = 277.0
+[node name="Hint" parent="BottomButtons" instance=ExtResource( 11 )]
+margin_left = 152.0
+margin_right = 287.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="CenteredDialog" type="Panel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 5 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Center" type="CenterContainer" parent="CenteredDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="OverDialog" type="VBoxContainer" parent="CenteredDialog/Center"]
+visible = false
+margin_left = 30.0
+margin_top = 268.0
+margin_right = 330.0
+margin_bottom = 532.0
+custom_constants/separation = 18
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Panel" type="Panel" parent="CenteredDialog/Center/OverDialog"]
+margin_right = 300.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 0, 51 )
+custom_styles/panel = SubResource( 7 )
+
+[node name="LeftPanel" type="Panel" parent="CenteredDialog/Center/OverDialog/Panel"]
+margin_right = 51.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 51, 51 )
+custom_styles/panel = SubResource( 6 )
+
+[node name="Star" type="TextureRect" parent="CenteredDialog/Center/OverDialog/Panel/LeftPanel"]
+modulate = Color( 0.980392, 0.988235, 0.701961, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 19 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CenteredDialog/Center/OverDialog/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -22.5
+margin_right = 147.0
+margin_bottom = 22.5
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 13 )
+text = "-5,000 PTS"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="PanelContainer" type="PanelContainer" parent="CenteredDialog/Center/OverDialog"]
+margin_top = 69.0
+margin_right = 300.0
+margin_bottom = 195.0
+rect_min_size = Vector2( 300, 126 )
+custom_styles/panel = SubResource( 4 )
+
+[node name="PlayAgain" parent="CenteredDialog/Center/OverDialog" instance=ExtResource( 8 )]
+margin_top = 213.0
+margin_right = 300.0
+margin_bottom = 264.0
+rect_min_size = Vector2( 0, 51 )
+custom_styles/normal = ExtResource( 20 )
+ui_icon = ExtResource( 21 )
+ui_text = "PLAY AGAIN"
+ui_font_color = Color( 0.666667, 0.623529, 0.792157, 1 )
+
+[node name="QuitDialog" type="VBoxContainer" parent="CenteredDialog/Center"]
+visible = false
+margin_left = 30.0
+margin_top = 303.0
+margin_right = 330.0
+margin_bottom = 497.0
+custom_constants/separation = 18
+script = ExtResource( 26 )
+
+[node name="Panel" type="Panel" parent="CenteredDialog/Center/QuitDialog"]
+margin_right = 300.0
+margin_bottom = 126.0
+rect_min_size = Vector2( 300, 126 )
+custom_styles/panel = SubResource( 8 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenteredDialog/Center/QuitDialog/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.5
+margin_top = -39.5
+margin_right = 120.5
+margin_bottom = 39.5
+custom_constants/separation = 18
+
+[node name="YouSureYouWannaLeave" type="Label" parent="CenteredDialog/Center/QuitDialog/Panel/VBoxContainer"]
+margin_right = 241.0
+margin_bottom = 45.0
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 13 )
+text = "You sure you wanna 
+leave?"
+align = 1
+
+[node name="ProgressionWillBeLost" type="Label" parent="CenteredDialog/Center/QuitDialog/Panel/VBoxContainer"]
+margin_top = 63.0
+margin_right = 241.0
+margin_bottom = 79.0
+custom_colors/font_color = Color( 0.796078, 0.298039, 0.298039, 1 )
+custom_fonts/font = ExtResource( 22 )
+text = "*Progression Will Be Lost"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenteredDialog/Center/QuitDialog"]
+margin_top = 144.0
+margin_right = 300.0
+margin_bottom = 194.0
+custom_constants/separation = 16
+
+[node name="Yes" parent="CenteredDialog/Center/QuitDialog/HBoxContainer" instance=ExtResource( 8 )]
+margin_right = 142.0
+custom_styles/normal = ExtResource( 23 )
+ui_icon = ExtResource( 24 )
+ui_text = "yes"
+ui_font_color = Color( 0.980392, 0.988235, 0.701961, 1 )
+
+[node name="No" parent="CenteredDialog/Center/QuitDialog/HBoxContainer" instance=ExtResource( 8 )]
+margin_left = 158.0
+margin_right = 300.0
+ui_icon = ExtResource( 25 )
+ui_text = "no"
+ui_font_color = Color( 0.847059, 0.964706, 0.678431, 1 )
+
 [connection signal="choice_pressed" from="Modes/MultiChoice/Choices" to="Modes/MultiChoice" method="_on_choice_pressed"]
+[connection signal="pressed" from="BottomButtons/Quit" to="BottomButtons" method="_on_Quit_pressed"]
+[connection signal="pressed" from="BottomButtons/Hint" to="BottomButtons" method="_on_Hint_pressed"]
+[connection signal="cancel" from="CenteredDialog/Center/QuitDialog" to="CenteredDialog" method="_on_QuitDialog_cancel"]
+[connection signal="quit" from="CenteredDialog/Center/QuitDialog" to="CenteredDialog" method="_on_QuitDialog_quit"]
+[connection signal="pressed" from="CenteredDialog/Center/QuitDialog/HBoxContainer/Yes" to="CenteredDialog/Center/QuitDialog" method="_on_Yes_pressed"]
+[connection signal="pressed" from="CenteredDialog/Center/QuitDialog/HBoxContainer/No" to="CenteredDialog/Center/QuitDialog" method="_on_No_pressed"]
