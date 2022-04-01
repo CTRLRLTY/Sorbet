@@ -1,14 +1,14 @@
 extends Panel
 
 signal quit
+signal menu
 
-onready var center: CenterContainer = $Center
-onready var over_dialog: Control = $Center/OverDialog
-onready var quit_dialog: Control = $Center/QuitDialog
+onready var over_dialog: Control = $OverDialog
+onready var quit_dialog: Control = $QuitDialog
 
 
 func _ready() -> void:
-	for dialog in center.get_children():
+	for dialog in get_children():
 		dialog.hide()
 	
 	hide()
@@ -17,7 +17,7 @@ func _ready() -> void:
 func popup_dialog(dialog: Control) -> void:
 	assert(is_a_parent_of(dialog))
 	
-	for child in center.get_children():
+	for child in get_children():
 		child.visible = child == dialog
 	
 	show()

@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+RuntimeManager="*res://Autoloads/RuntimeManager.gd"
 SceneManager="*res://Autoloads/SceneManager.tscn"
 
 [display]

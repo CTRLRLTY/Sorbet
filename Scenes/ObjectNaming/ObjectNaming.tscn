@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Resources/Animals/cow.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/ObjectNaming/TimerBar.gd" type="Script" id=2]
@@ -28,6 +28,13 @@
 [ext_resource path="res://Scenes/ObjectNaming/QuitDialog.gd" type="Script" id=26]
 [ext_resource path="res://Scenes/ObjectNaming/CenteredDialog.gd" type="Script" id=27]
 [ext_resource path="res://Scenes/ObjectNaming/BottomButtons.gd" type="Script" id=28]
+[ext_resource path="res://Scenes/Buttons/BackToMenu.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Resources/fonts/Bungee-Regular-36.tres" type="DynamicFont" id=30]
+[ext_resource path="res://Resources/Icons/dead_face.png" type="Texture" id=31]
+[ext_resource path="res://Resources/Icons/confetti.png" type="Texture" id=32]
+[ext_resource path="res://Scenes/ObjectNaming/Spanner.gd" type="Script" id=33]
+[ext_resource path="res://Scenes/ObjectNaming/PointGain.gd" type="Script" id=34]
+[ext_resource path="res://Scenes/ObjectNaming/OverDialog.gd" type="Script" id=35]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.788235, 0.788235, 0.788235, 1 )
@@ -65,6 +72,20 @@ border_width_bottom = 3
 border_color = Color( 0.807843, 0.721569, 0.254902, 1 )
 corner_radius_top_left = 3
 corner_radius_top_right = 3
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.67451, 0.819608, 0.466667, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.541176, 0.678431, 0.364706, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.921569, 0.341176, 0.341176, 1 )
@@ -371,7 +392,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="CenteredDialog" type="Panel" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 5 )
@@ -380,15 +400,15 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Center" type="CenterContainer" parent="CenteredDialog"]
+[node name="OverDialog" type="Control" parent="CenteredDialog"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 35 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="OverDialog" type="VBoxContainer" parent="CenteredDialog/Center"]
-visible = false
+[node name="VBox" type="VBoxContainer" parent="CenteredDialog/OverDialog"]
 margin_left = 30.0
 margin_top = 268.0
 margin_right = 330.0
@@ -398,26 +418,27 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Panel" type="Panel" parent="CenteredDialog/Center/OverDialog"]
+[node name="PointGain" type="Panel" parent="CenteredDialog/OverDialog/VBox"]
 margin_right = 300.0
 margin_bottom = 51.0
 rect_min_size = Vector2( 0, 51 )
 custom_styles/panel = SubResource( 7 )
+script = ExtResource( 34 )
 
-[node name="LeftPanel" type="Panel" parent="CenteredDialog/Center/OverDialog/Panel"]
+[node name="LeftPanel" type="Panel" parent="CenteredDialog/OverDialog/VBox/PointGain"]
 margin_right = 51.0
 margin_bottom = 51.0
 rect_min_size = Vector2( 51, 51 )
 custom_styles/panel = SubResource( 6 )
 
-[node name="Star" type="TextureRect" parent="CenteredDialog/Center/OverDialog/Panel/LeftPanel"]
+[node name="Star" type="TextureRect" parent="CenteredDialog/OverDialog/VBox/PointGain/LeftPanel"]
 modulate = Color( 0.980392, 0.988235, 0.701961, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 19 )
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="CenteredDialog/Center/OverDialog/Panel"]
+[node name="Label" type="Label" parent="CenteredDialog/OverDialog/VBox/PointGain"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -428,44 +449,132 @@ margin_right = 147.0
 margin_bottom = 22.5
 custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
 custom_fonts/font = ExtResource( 13 )
-text = "-5,000 PTS"
+text = "?? pts"
 align = 1
 valign = 1
 clip_text = true
 
-[node name="PanelContainer" type="PanelContainer" parent="CenteredDialog/Center/OverDialog"]
+[node name="Spanner" type="PanelContainer" parent="CenteredDialog/OverDialog/VBox"]
 margin_top = 69.0
 margin_right = 300.0
 margin_bottom = 195.0
 rect_min_size = Vector2( 300, 126 )
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 9 )
+script = ExtResource( 33 )
 
-[node name="PlayAgain" parent="CenteredDialog/Center/OverDialog" instance=ExtResource( 8 )]
+[node name="Gain" type="Panel" parent="CenteredDialog/OverDialog/VBox/Spanner"]
+margin_right = 300.0
+margin_bottom = 126.0
+custom_styles/panel = SubResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VBox" type="VBoxContainer" parent="CenteredDialog/OverDialog/VBox/Spanner/Gain"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -124.0
+margin_top = -44.5
+margin_right = 124.0
+margin_bottom = 44.5
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="CenteredDialog/OverDialog/VBox/Spanner/Gain/VBox"]
+margin_right = 248.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0.847059, 0.964706, 0.678431, 1 )
+custom_fonts/font = ExtResource( 30 )
+text = "POINT GAIN!"
+align = 1
+valign = 1
+
+[node name="TextureRect" type="TextureRect" parent="CenteredDialog/OverDialog/VBox/Spanner/Gain/VBox"]
+modulate = Color( 0.847059, 0.964706, 0.678431, 1 )
+margin_left = 100.0
+margin_top = 41.0
+margin_right = 148.0
+margin_bottom = 89.0
+size_flags_horizontal = 6
+texture = ExtResource( 32 )
+
+[node name="Loss" type="Panel" parent="CenteredDialog/OverDialog/VBox/Spanner"]
+visible = false
+margin_right = 300.0
+margin_bottom = 126.0
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VBox" type="VBoxContainer" parent="CenteredDialog/OverDialog/VBox/Spanner/Loss"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -123.0
+margin_top = -44.5
+margin_right = 123.0
+margin_bottom = 44.5
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="CenteredDialog/OverDialog/VBox/Spanner/Loss/VBox"]
+margin_right = 246.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0.647059, 0.243137, 0.243137, 1 )
+custom_fonts/font = ExtResource( 30 )
+text = "POINt LOSS!"
+align = 1
+valign = 1
+
+[node name="TextureRect" type="TextureRect" parent="CenteredDialog/OverDialog/VBox/Spanner/Loss/VBox"]
+modulate = Color( 0.647059, 0.243137, 0.243137, 1 )
+margin_left = 99.0
+margin_top = 41.0
+margin_right = 147.0
+margin_bottom = 89.0
+size_flags_horizontal = 6
+texture = ExtResource( 31 )
+
+[node name="PlayAgain" parent="CenteredDialog/OverDialog/VBox" instance=ExtResource( 8 )]
 margin_top = 213.0
 margin_right = 300.0
 margin_bottom = 264.0
-rect_min_size = Vector2( 0, 51 )
 custom_styles/normal = ExtResource( 20 )
 ui_icon = ExtResource( 21 )
 ui_text = "PLAY AGAIN"
 ui_font_color = Color( 0.666667, 0.623529, 0.792157, 1 )
 
-[node name="QuitDialog" type="VBoxContainer" parent="CenteredDialog/Center"]
+[node name="Back" parent="CenteredDialog/OverDialog" instance=ExtResource( 29 )]
+
+[node name="QuitDialog" type="VBoxContainer" parent="CenteredDialog"]
 visible = false
-margin_left = 30.0
-margin_top = 303.0
-margin_right = 330.0
-margin_bottom = 497.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -97.0
+margin_right = 150.0
+margin_bottom = 97.0
 custom_constants/separation = 18
 script = ExtResource( 26 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Panel" type="Panel" parent="CenteredDialog/Center/QuitDialog"]
+[node name="Panel" type="Panel" parent="CenteredDialog/QuitDialog"]
 margin_right = 300.0
 margin_bottom = 126.0
 rect_min_size = Vector2( 300, 126 )
 custom_styles/panel = SubResource( 8 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenteredDialog/Center/QuitDialog/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenteredDialog/QuitDialog/Panel"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -476,7 +585,7 @@ margin_right = 120.5
 margin_bottom = 39.5
 custom_constants/separation = 18
 
-[node name="YouSureYouWannaLeave" type="Label" parent="CenteredDialog/Center/QuitDialog/Panel/VBoxContainer"]
+[node name="YouSureYouWannaLeave" type="Label" parent="CenteredDialog/QuitDialog/Panel/VBoxContainer"]
 margin_right = 241.0
 margin_bottom = 45.0
 custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
@@ -485,7 +594,7 @@ text = "You sure you wanna
 leave?"
 align = 1
 
-[node name="ProgressionWillBeLost" type="Label" parent="CenteredDialog/Center/QuitDialog/Panel/VBoxContainer"]
+[node name="ProgressionWillBeLost" type="Label" parent="CenteredDialog/QuitDialog/Panel/VBoxContainer"]
 margin_top = 63.0
 margin_right = 241.0
 margin_bottom = 79.0
@@ -495,20 +604,20 @@ text = "*Progression Will Be Lost"
 align = 1
 valign = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenteredDialog/Center/QuitDialog"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenteredDialog/QuitDialog"]
 margin_top = 144.0
 margin_right = 300.0
 margin_bottom = 194.0
 custom_constants/separation = 16
 
-[node name="Yes" parent="CenteredDialog/Center/QuitDialog/HBoxContainer" instance=ExtResource( 8 )]
+[node name="Yes" parent="CenteredDialog/QuitDialog/HBoxContainer" instance=ExtResource( 8 )]
 margin_right = 142.0
 custom_styles/normal = ExtResource( 23 )
 ui_icon = ExtResource( 24 )
 ui_text = "yes"
 ui_font_color = Color( 0.980392, 0.988235, 0.701961, 1 )
 
-[node name="No" parent="CenteredDialog/Center/QuitDialog/HBoxContainer" instance=ExtResource( 8 )]
+[node name="No" parent="CenteredDialog/QuitDialog/HBoxContainer" instance=ExtResource( 8 )]
 margin_left = 158.0
 margin_right = 300.0
 ui_icon = ExtResource( 25 )
@@ -518,7 +627,8 @@ ui_font_color = Color( 0.847059, 0.964706, 0.678431, 1 )
 [connection signal="choice_pressed" from="Modes/MultiChoice/Choices" to="Modes/MultiChoice" method="_on_choice_pressed"]
 [connection signal="pressed" from="BottomButtons/Quit" to="BottomButtons" method="_on_Quit_pressed"]
 [connection signal="pressed" from="BottomButtons/Hint" to="BottomButtons" method="_on_Hint_pressed"]
-[connection signal="cancel" from="CenteredDialog/Center/QuitDialog" to="CenteredDialog" method="_on_QuitDialog_cancel"]
-[connection signal="quit" from="CenteredDialog/Center/QuitDialog" to="CenteredDialog" method="_on_QuitDialog_quit"]
-[connection signal="pressed" from="CenteredDialog/Center/QuitDialog/HBoxContainer/Yes" to="CenteredDialog/Center/QuitDialog" method="_on_Yes_pressed"]
-[connection signal="pressed" from="CenteredDialog/Center/QuitDialog/HBoxContainer/No" to="CenteredDialog/Center/QuitDialog" method="_on_No_pressed"]
+[connection signal="pressed" from="CenteredDialog/OverDialog/Back" to="CenteredDialog/OverDialog" method="_on_Back_pressed"]
+[connection signal="cancel" from="CenteredDialog/QuitDialog" to="CenteredDialog" method="_on_QuitDialog_cancel"]
+[connection signal="quit" from="CenteredDialog/QuitDialog" to="CenteredDialog" method="_on_QuitDialog_quit"]
+[connection signal="pressed" from="CenteredDialog/QuitDialog/HBoxContainer/Yes" to="CenteredDialog/QuitDialog" method="_on_Yes_pressed"]
+[connection signal="pressed" from="CenteredDialog/QuitDialog/HBoxContainer/No" to="CenteredDialog/QuitDialog" method="_on_No_pressed"]
