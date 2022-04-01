@@ -1,3 +1,5 @@
+tool
+
 extends CenterContainer
 
 enum MilestoneType {
@@ -10,20 +12,32 @@ enum MilestoneType {
 onready var hbox: HBoxContainer = $HBox
 
 
+func _enter_tree() -> void:
+	if Engine.editor_hint:
+		clear_milestone()
+		add_milestone(MilestoneType.EMPTY)
+		add_milestone(MilestoneType.EMPTY)
+		add_milestone(MilestoneType.EMPTY)
+		add_milestone(MilestoneType.EMPTY)
+		add_milestone(MilestoneType.FLAG_EMPTY)
+
+
 func _ready() -> void:
-	add_milestone(MilestoneType.EMPTY)
-	add_milestone(MilestoneType.EMPTY)
-	add_milestone(MilestoneType.EMPTY)
-	add_milestone(MilestoneType.EMPTY)
-	add_milestone(MilestoneType.FLAG_EMPTY)
+	if not Engine.editor_hint:
+		clear_milestone()
 
 
 func milestone_count() -> int:
 	return get_child_count()
 
 
+func clear_milestone() -> void:
+	for milestone in $HBox.get_children():
+		milestone.queue_free()
+
+
 func add_milestone(milestone_type := MilestoneType.EMPTY) -> void:
-	var add_seperator := bool(hbox.get_child_count() % 2)
+	var add_seperator := bool($HBox.get_child_count() % 2)
 	
 	if add_seperator:
 		var seperator := Panel.new()
@@ -36,19 +50,19 @@ func add_milestone(milestone_type := MilestoneType.EMPTY) -> void:
 		seperator.add_stylebox_override("panel", stylebox)
 		seperator.size_flags_vertical = SIZE_EXPAND | SIZE_SHRINK_CENTER
 		
-		hbox.add_child(seperator)
+		$HBox.add_child(seperator)
 	
 	var milestone: TextureRect = TextureRect.new()
 	
 	milestone.texture = _milestone_texture(milestone_type)
 
-	hbox.add_child(milestone)
+	$HBox.add_child(milestone)
 
 
 func set_milestone_type(idx: int, milestone_type: int) -> void:
-	assert(hbox.get_child_count() >= 0 or hbox.get_child_count() <= idx, "index out of bound")
+	assert($HBox.get_child_count() >= 0 or $HBox.get_child_count() <= idx, "index out of bound")
 	
-	var milestone: TextureRect = hbox.get_child(idx)
+	var milestone: TextureRect = $HBox.get_child(idx)
 	
 	milestone.texture = _milestone_texture(milestone_type)
 

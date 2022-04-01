@@ -4,6 +4,7 @@ signal timeout
 
 
 onready var timer: Timer = $Timer
+onready var label: Label = $Label 
 
 
 func _ready() -> void:
@@ -24,6 +25,8 @@ func end() -> void:
 func _process(delta: float) -> void:
 #	if timer.time_left
 	value = timer.time_left
+	label.text = str(stepify(timer.time_left, 0.1)).pad_decimals(1)
+	
 
 
 func _on_Timer_timeout() -> void:
