@@ -2,6 +2,7 @@ extends Panel
 
 signal quit
 signal menu
+signal play_again
 
 onready var over_dialog: Control = $OverDialog
 onready var quit_dialog: Control = $QuitDialog
@@ -41,3 +42,7 @@ func _on_QuitDialog_cancel() -> void:
 
 func _on_OverDialog_back_to_menu_request() -> void:
 	emit_signal("menu")
+
+
+func _on_OverDialog_play_again_request() -> void:
+	emit_signal("play_again")

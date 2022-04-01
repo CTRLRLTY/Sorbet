@@ -1,6 +1,7 @@
 extends Control
 
 signal back_to_menu_request
+signal play_again_request
 
 
 onready var point_gain: Control = $VBox/PointGain
@@ -27,3 +28,7 @@ func _on_visibility_changed() -> void:
 
 func _on_Back_pressed() -> void:
 	emit_signal("back_to_menu_request")
+
+
+func _on_PlayAgain_pressed() -> void:
+	emit_signal("play_again_request")
