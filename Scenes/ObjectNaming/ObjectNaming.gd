@@ -67,6 +67,7 @@ func _ready() -> void:
 	modes.multi_choice.connect("choice_selected", self, "_on_choice_selected")
 	modes.multi_choice.timer_progress.connect("timeout", self, "_on_timer_timeout")
 	buttons.connect("quit_request", self, "_on_quit_request")
+	centered_dialog.connect("quit", self, "_on_quit")
 	
 	for step in range(milestone_steps):
 		milestone.add_milestone(milestone.MilestoneType.EMPTY)
@@ -141,3 +142,7 @@ func _on_timer_timeout() -> void:
 
 func _on_quit_request() -> void:
 	centered_dialog.popup_quit_dialog()
+
+
+func _on_quit() -> void:
+	SceneManager.goto_level_selection()
