@@ -111,6 +111,11 @@ func _on_choice_selected(choice: String) -> void:
 	
 	milestone_position += 1
 	
-	randomize_object()
+	var flag_reached := milestone_position == milestone_steps
 	
-	modes.multi_choice.timer_progress.reset()
+	if flag_reached:
+		print_debug("Done!")
+	else:
+		randomize_object()
+		
+		modes.multi_choice.timer_progress.reset()
