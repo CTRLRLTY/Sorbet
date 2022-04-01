@@ -62,8 +62,7 @@ func add_milestone(milestone_type := MilestoneType.EMPTY) -> void:
 func set_milestone_type(idx: int, milestone_type: int) -> void:
 	assert($HBox.get_child_count() >= 0 or $HBox.get_child_count() <= idx, "index out of bound")
 	
-	# series: n * 2 + 1
-	
+	# series: n * 2
 	var milestone_index = idx * 2 
 	
 	var milestone: TextureRect = $HBox.get_child(milestone_index)

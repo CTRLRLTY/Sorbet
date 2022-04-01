@@ -12,6 +12,7 @@ config_version=4
 
 config/name="Sorbet"
 run/main_scene="res://Scenes/TitleScreen/TitleScreen.tscn"
+boot_splash/image="res://Resources/Textures/blank_splash.png"
 config/icon="res://icon.png"
 
 [autoload]
