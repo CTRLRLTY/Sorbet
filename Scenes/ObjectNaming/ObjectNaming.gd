@@ -127,15 +127,22 @@ func randomize_fixed_character() -> void:
 	var filled: Label = fixed_character.filled
 	
 	var max_fill_scale := 0.8
+	var min_fill_scale := 0.3
 	
 	var btn_count: int = fixed_character.char_count()
+	
 	var min_answers: int 
 	
 	var trailing := max(0, object_name.length() - btn_count)
 	
+	var min_filled := floor(object_name.length() * min_fill_scale)
 	var max_filled: int = floor(min(object_name.length(), 6) * max_fill_scale)
-	var initial_fill := (randi() % max_filled)
-	var total_fill := initial_fill + trailing
+	
+	var initial_fill := randi() % max_filled
+	var min_fill := abs(initial_fill - min_filled)
+	var total_fill := initial_fill + trailing + min_fill
+	
+#	print_debug(min_filled, " ", min_fill, " ", max_filled, " ", initial_fill, " ", total_fill)
 	
 	var filled_index := []
 	
