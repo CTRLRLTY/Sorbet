@@ -131,8 +131,6 @@ func randomize_fixed_character() -> void:
 	
 	var btn_count: int = fixed_character.char_count()
 	
-	var min_answers: int 
-	
 	var trailing := max(0, object_name.length() - btn_count)
 	
 	var min_filled := floor(object_name.length() * min_fill_scale)
@@ -152,11 +150,34 @@ func randomize_fixed_character() -> void:
 	
 	filled.text = "_".repeat(object_name.length())
 	
-	for i in filled_index:
-		filled.text[i] = object_name[i]
+	var unfilled_index := []
 	
-#	print_debug(fil)
+	for i in object_name.length():
+		if filled_index.has(i):
+			filled.text[i] = object_name[i]
+		else:
+			unfilled_index.append(i)
 	
+	var characters := []
+	
+	for i in unfilled_index:
+		characters.append(object_name[i])
+	
+	print_debug(characters)
+	var noise := []
+	
+	for i in btn_count - characters.size():
+		var ascii := (randi() % 25 + 1) + 97
+		
+		while characters.has(ascii):
+			ascii = (randi() % 25 + 1) + 97
+	
+		noise.append(char(ascii))
+	
+	characters.append_array(noise)
+	characters.shuffle()
+	
+	fixed_character.set_characters(characters)
 
 
 func set_milestone_position(pos: int) -> void:
