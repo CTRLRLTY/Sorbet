@@ -7,11 +7,10 @@ var button_group := ButtonGroup.new()
 
 
 func _ready() -> void:
-	for row in get_children():
-		for button in row.get_children():
-			button.group = button_group
-	
-			button.connect("pressed", self, "_on_character_pressed", [button])
+	for button in get_child(0).get_children():
+		button.group = button_group
+
+		button.connect("pressed", self, "_on_character_pressed", [button])
 
 
 func _on_character_pressed(button: Button) -> void:

@@ -129,14 +129,13 @@ func randomize_fixed_character() -> void:
 	var filled: Label = fixed_character.filled
 	
 	var max_fill_scale := 0.8
-	var min_fill_scale := 0.3
 	
 	var btn_count: int = fixed_character.char_count()
 	
 	var trailing := max(0, object_name.length() - btn_count)
 	
-	var min_filled := floor(object_name.length() * min_fill_scale)
-	var max_filled: int = floor(min(object_name.length(), 6) * max_fill_scale)
+	var min_filled: int = fixed_character.crosses.count()
+	var max_filled: int = floor(min(object_name.length(), btn_count) * max_fill_scale)
 	
 	var initial_fill := randi() % max_filled
 	var min_fill := abs(initial_fill - min_filled)
@@ -145,6 +144,8 @@ func randomize_fixed_character() -> void:
 #	print_debug(min_filled, " ", min_fill, " ", max_filled, " ", initial_fill, " ", total_fill)
 	
 	var filled_index := []
+	
+	fixed_character.reset()
 	
 	for i in range(total_fill):
 		var index := randi() % object_name.length()
@@ -170,7 +171,7 @@ func randomize_fixed_character() -> void:
 	for i in btn_count - characters.size():
 		var ascii := (randi() % 25 + 1) + 97
 		
-		while characters.has(ascii):
+		while characters.has(ascii) or noise.has(ascii):
 			ascii = (randi() % 25 + 1) + 97
 	
 		noise.append(char(ascii))
@@ -187,18 +188,14 @@ func set_milestone_position(pos: int) -> void:
 	
 	if flag_reached:
 		centered_dialog.popup_over_dialog()
-		
-		modes.multi_choice.timer_progress.stop()
-	else:
-		randomize_object()
-		
-		modes.multi_choice.timer_progress.start()
 
 
 func _on_choice_selected(choice: String) -> void:
 	var flag_reached := milestone_position == milestone_steps
 
 	if flag_reached:
+		modes.multi_choice.timer_progress.stop()
+		
 		return
 	
 	if choice == object_name:
@@ -208,6 +205,10 @@ func _on_choice_selected(choice: String) -> void:
 		RuntimeManager.point_accumulated += milestone_step_point
 				
 		self.milestone_position += 1
+		
+		modes.multi_choice.timer_progress.start()
+		
+		randomize_object()
 	else:
 		var time_left = modes.multi_choice.timer_progress.time_left()
 		var time_sec: float = max(time_left - decrease_on_wrong_amount, 0)
@@ -219,6 +220,7 @@ func _on_character_selected(c: String) -> void:
 	var fixed_character: Control = modes.fixed_character
 	var filled: Label = fixed_character.filled
 	var unfilled: PoolIntArray = filled.get_unfilled()
+	var crosses: Control = fixed_character.crosses
 	
 	var correct_answer := false
 	
@@ -231,8 +233,27 @@ func _on_character_selected(c: String) -> void:
 			break
 	
 	if correct_answer:
-		pass
-	
+		if filled.complete():
+			milestone.set_milestone_type(milestone_position, 
+				milestone.MilestoneType.SUCCESS)
+			
+			RuntimeManager.point_accumulated += milestone_step_point
+			
+			self.milestone_position += 1
+			
+			randomize_object()
+	else:
+		crosses.cross += 1
+		
+		if crosses.maxed():
+			milestone.set_milestone_type(milestone_position, 
+					milestone.MilestoneType.FAIL)
+			
+			RuntimeManager.point_accumulated -= milestone_step_point
+			
+			self.milestone_position += 1
+			
+			randomize_object()
 
 
 func _on_timer_timeout() -> void:

@@ -4,10 +4,18 @@ signal character_selected(c)
 
 onready var filled: Label = $Filled
 onready var characters: Control = $Characters
+onready var crosses: Control = $Crosses
 
 
 func _ready() -> void:
 	characters.connect("character_selected", self, "_on_character_selected")
+
+
+func reset() -> void:
+	for btn in characters.button_group.get_buttons():
+		btn.disabled = false
+	
+	crosses.cross = 0
 
 
 func set_characters(chars: PoolStringArray) -> void:

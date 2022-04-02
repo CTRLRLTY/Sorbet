@@ -15,6 +15,10 @@ func fill(idx: int, c: String) -> void:
 	text[idx] = c
 
 
+func complete() -> bool:
+	return get_unfilled().empty()
+
+
 func get_unfilled() -> PoolIntArray:
 	var unfilled := PoolIntArray([])
 	var matches := unfilled_filter.search_all(text)
