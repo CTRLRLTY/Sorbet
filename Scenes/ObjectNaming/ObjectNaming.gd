@@ -50,8 +50,6 @@ var milestone_position := 0 setget set_milestone_position
 var milestone_steps := 5
 var milestone_step_point := 10
 
-var decrease_on_wrong_amount := 2.0
-
 
 var _name_bag: RNGBagSlot
 
@@ -141,7 +139,7 @@ func randomize_fixed_character() -> void:
 	
 	var trailing := max(0, object_name.length() - btn_count)
 	
-	var min_filled: int = fixed_character.crosses.count()
+	var min_filled: int = randi() % fixed_character.crosses.count()
 	var max_filled: int = floor(min(object_name.length(), btn_count) * max_fill_scale)
 	
 	var initial_fill := randi() % max_filled
@@ -219,8 +217,9 @@ func _on_choice_selected(choice: String) -> void:
 		
 		randomize_object()
 	else:
+		var timer_decrease := 3.0
 		var time_left = modes.multi_choice.timer_progress.time_left()
-		var time_sec: float = max(time_left - decrease_on_wrong_amount, 0)
+		var time_sec: float = max(time_left - timer_decrease, 0)
 		
 		modes.multi_choice.timer_progress.start(time_sec)
 
