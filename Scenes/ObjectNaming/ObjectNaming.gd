@@ -95,7 +95,12 @@ func randomize_object() -> void:
 	var texture: Texture = load(res_path)
 	
 	object_rect.texture = texture
+	
+#	randomize_multi_choice()
+	randomize_fixed_character()
 
+
+func randomize_multi_choice() -> void:
 	var choice_count: int = modes.multi_choice.choice_count()
 	
 	var choices := []
@@ -114,6 +119,37 @@ func randomize_object() -> void:
 		choices[answer_index] = object_name
 		
 	modes.multi_choice.set_choices(choices)
+	modes.multi_choice.timer_progress.start()
+
+
+func randomize_fixed_character() -> void:
+	var fixed_character: Control = modes.fixed_character
+	var filled: Label = fixed_character.filled
+	
+	var max_fill_scale := 0.8
+	
+	var btn_count: int = fixed_character.char_count()
+	var min_answers: int 
+	
+	var trailing := max(0, object_name.length() - btn_count)
+	
+	var max_filled: int = floor(min(object_name.length(), 6) * max_fill_scale)
+	var initial_fill := (randi() % max_filled)
+	var total_fill := initial_fill + trailing
+	
+	var filled_index := []
+	
+	for i in range(total_fill):
+		var index := randi() % object_name.length()
+		filled_index.append(index)
+	
+	filled.text = "_".repeat(object_name.length())
+	
+	for i in filled_index:
+		filled.text[i] = object_name[i]
+	
+#	print_debug(fil)
+	
 
 
 func set_milestone_position(pos: int) -> void:

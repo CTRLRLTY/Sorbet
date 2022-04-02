@@ -9,8 +9,6 @@ onready var timer: Timer = timer_bar.timer
 
 func _ready() -> void:
 	timer.connect("timeout", self, "_on_timer_timeout")
-	
-	start()
 
 
 func start(time_sec := timer_bar.max_value) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Resources/Animals/cow.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/ObjectNaming/TimerBar.gd" type="Script" id=2]
@@ -35,9 +35,36 @@
 [ext_resource path="res://Scenes/ObjectNaming/Spanner.gd" type="Script" id=33]
 [ext_resource path="res://Scenes/ObjectNaming/PointGain.gd" type="Script" id=34]
 [ext_resource path="res://Scenes/ObjectNaming/OverDialog.gd" type="Script" id=35]
+[ext_resource path="res://Scenes/ObjectNaming/FixedCharacter.gd" type="Script" id=36]
+[ext_resource path="res://Scenes/ObjectNaming/Filled.gd" type="Script" id=38]
+[ext_resource path="res://Scenes/ObjectNaming/Characters.gd" type="Script" id=39]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.788235, 0.788235, 0.788235, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.6, 0.615686, 0.623529, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.788235, 0.788235, 0.788235, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.6, 0.615686, 0.623529, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -149,9 +176,9 @@ rect_scale = Vector2( 1.00184, 1 )
 script = ExtResource( 12 )
 
 [node name="HBox" type="HBoxContainer" parent="Milestone"]
-margin_left = 32.0
+margin_left = 44.0
 margin_top = 2.0
-margin_right = 327.0
+margin_right = 315.0
 margin_bottom = 37.0
 custom_constants/separation = 0
 
@@ -164,6 +191,7 @@ __meta__ = {
 }
 
 [node name="MultiChoice" type="Control" parent="Modes"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
@@ -331,18 +359,18 @@ custom_colors/font_color = Color( 0.356863, 0.333333, 0.427451, 1 )
 custom_fonts/font = ExtResource( 13 )
 
 [node name="FixedCharacter" type="Control" parent="Modes"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 36 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Crosses" type="HBoxContainer" parent="Modes/FixedCharacter"]
 margin_left = 76.0
-margin_top = 28.0
+margin_top = 39.0
 margin_right = 284.0
-margin_bottom = 82.0
+margin_bottom = 93.0
 custom_constants/separation = 23
 script = ExtResource( 14 )
 
@@ -362,6 +390,137 @@ margin_left = 154.0
 margin_right = 208.0
 margin_bottom = 54.0
 texture = ExtResource( 3 )
+
+[node name="Characters" type="VBoxContainer" parent="Modes/FixedCharacter"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -147.0
+margin_top = 156.0
+margin_right = 147.0
+margin_bottom = 294.0
+custom_constants/separation = 18
+script = ExtResource( 39 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Modes/FixedCharacter/Characters"]
+margin_right = 294.0
+margin_bottom = 60.0
+custom_constants/separation = 18
+alignment = 1
+
+[node name="Button" type="Button" parent="Modes/FixedCharacter/Characters/HBoxContainer"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+focus_mode = 0
+custom_colors/font_color_focus = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_colors/font_color_hover = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_colors/font_color_pressed = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 13 )
+custom_styles/normal = SubResource( 11 )
+enabled_focus_mode = 0
+text = "-"
+
+[node name="Button2" type="Button" parent="Modes/FixedCharacter/Characters/HBoxContainer"]
+margin_left = 78.0
+margin_right = 138.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+focus_mode = 0
+custom_colors/font_color_focus = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_colors/font_color_hover = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_colors/font_color_pressed = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 13 )
+custom_styles/normal = SubResource( 11 )
+enabled_focus_mode = 0
+text = "-"
+
+[node name="Button3" type="Button" parent="Modes/FixedCharacter/Characters/HBoxContainer"]
+margin_left = 156.0
+margin_right = 216.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+focus_mode = 0
+custom_colors/font_color_focus = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_colors/font_color_hover = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_colors/font_color_pressed = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 13 )
+custom_styles/normal = SubResource( 11 )
+enabled_focus_mode = 0
+text = "-"
+
+[node name="Button4" type="Button" parent="Modes/FixedCharacter/Characters/HBoxContainer"]
+margin_left = 234.0
+margin_right = 294.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+focus_mode = 0
+custom_colors/font_color_focus = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_colors/font_color_hover = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_colors/font_color_pressed = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 13 )
+custom_styles/normal = SubResource( 11 )
+enabled_focus_mode = 0
+text = "-"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Modes/FixedCharacter/Characters"]
+margin_top = 78.0
+margin_right = 294.0
+margin_bottom = 138.0
+custom_constants/separation = 18
+alignment = 1
+
+[node name="Button3" type="Button" parent="Modes/FixedCharacter/Characters/HBoxContainer2"]
+margin_left = 78.0
+margin_right = 138.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+focus_mode = 0
+custom_colors/font_color_focus = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_colors/font_color_hover = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_colors/font_color_pressed = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 13 )
+custom_styles/normal = SubResource( 11 )
+enabled_focus_mode = 0
+text = "-"
+
+[node name="Button4" type="Button" parent="Modes/FixedCharacter/Characters/HBoxContainer2"]
+margin_left = 156.0
+margin_right = 216.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+focus_mode = 0
+custom_colors/font_color_focus = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_colors/font_color_hover = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_colors/font_color_pressed = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 13 )
+custom_styles/normal = SubResource( 11 )
+enabled_focus_mode = 0
+text = "-"
+
+[node name="Filled" type="Label" parent="Modes/FixedCharacter"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -147.0
+margin_top = 70.0
+margin_right = 147.0
+margin_bottom = 130.0
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 13 )
+custom_styles/normal = SubResource( 12 )
+text = "____"
+align = 1
+valign = 1
+script = ExtResource( 38 )
 
 [node name="BottomButtons" type="HBoxContainer" parent="."]
 anchor_left = 0.5
