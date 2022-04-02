@@ -170,11 +170,14 @@ func randomize_fixed_character() -> void:
 	
 	for i in btn_count - characters.size():
 		var ascii := (randi() % 25 + 1) + 97
+		var c := char(ascii)
 		
-		while characters.has(ascii) or noise.has(ascii):
+		while characters.has(c) or noise.has(c):
 			ascii = (randi() % 25 + 1) + 97
+			c = char(ascii)
+		
+		noise.append(c)
 	
-		noise.append(char(ascii))
 	
 	characters.append_array(noise)
 	characters.shuffle()
