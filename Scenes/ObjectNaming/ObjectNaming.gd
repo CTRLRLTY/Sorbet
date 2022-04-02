@@ -71,6 +71,8 @@ func _ready() -> void:
 	modes.multi_choice.connect("choice_selected", self, "_on_choice_selected")
 	modes.multi_choice.timer_progress.connect("timeout", self, "_on_timer_timeout")
 	
+	modes.fixed_character.connect("character_selected", self, "_on_character_selected")
+	
 	buttons.connect("quit_request", self, "_on_quit_request")
 	
 	centered_dialog.connect("quit", self, "_on_quit")
@@ -211,6 +213,26 @@ func _on_choice_selected(choice: String) -> void:
 		var time_sec: float = max(time_left - decrease_on_wrong_amount, 0)
 		
 		modes.multi_choice.timer_progress.start(time_sec)
+
+
+func _on_character_selected(c: String) -> void:
+	var fixed_character: Control = modes.fixed_character
+	var filled: Label = fixed_character.filled
+	var unfilled: PoolIntArray = filled.get_unfilled()
+	
+	var correct_answer := false
+	
+	for i in unfilled:
+		if c == object_name[i]:
+			filled.text[i] = c
+			
+			correct_answer = true
+			
+			break
+	
+	if correct_answer:
+		pass
+	
 
 
 func _on_timer_timeout() -> void:

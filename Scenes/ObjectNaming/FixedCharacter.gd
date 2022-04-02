@@ -1,5 +1,6 @@
 extends Control
 
+signal character_selected(c)
 
 onready var filled: Label = $Filled
 onready var characters: Control = $Characters
@@ -25,4 +26,4 @@ func char_count() -> int:
 
 
 func _on_character_selected(c: String) -> void:
-	print_debug(filled.get_unfilled())
+	emit_signal("character_selected", c)
