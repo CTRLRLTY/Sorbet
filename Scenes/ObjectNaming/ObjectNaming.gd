@@ -98,8 +98,15 @@ func randomize_object() -> void:
 	
 	object_rect.texture = texture
 	
-#	randomize_multi_choice()
-	randomize_fixed_character()
+	var f := [
+		funcref(self, "randomize_multi_choice"), 
+		funcref(self, "randomize_fixed_character")]
+	
+	var i := randi() % f.size()
+	
+	modes.use_mode(i)
+	
+	f[i].call_func()
 
 
 func randomize_multi_choice() -> void:
@@ -209,14 +216,13 @@ func _on_choice_selected(choice: String) -> void:
 				
 		self.milestone_position += 1
 		
-		modes.multi_choice.timer_progress.start()
-		
 		randomize_object()
 	else:
 		var time_left = modes.multi_choice.timer_progress.time_left()
 		var time_sec: float = max(time_left - decrease_on_wrong_amount, 0)
 		
 		modes.multi_choice.timer_progress.start(time_sec)
+		
 
 
 func _on_character_selected(c: String) -> void:
@@ -266,6 +272,8 @@ func _on_timer_timeout() -> void:
 	RuntimeManager.point_accumulated -= milestone_step_point
 
 	self.milestone_position += 1
+	
+	randomize_object()
 
 
 func _on_quit_request() -> void:

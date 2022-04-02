@@ -177,9 +177,9 @@ rect_scale = Vector2( 1.00184, 1 )
 script = ExtResource( 12 )
 
 [node name="HBox" type="HBoxContainer" parent="Milestone"]
-margin_left = 44.0
+margin_left = 32.0
 margin_top = 2.0
-margin_right = 315.0
+margin_right = 327.0
 margin_bottom = 37.0
 custom_constants/separation = 0
 

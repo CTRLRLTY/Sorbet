@@ -23,8 +23,6 @@ func start(time_sec := timer_bar.max_value) -> void:
 
 
 func stop() -> void:
-	set_process(false)
-	
 	timer.stop()
 
 
@@ -34,14 +32,18 @@ func time_left() -> float:
 
 
 func end() -> void:
-	set_process(false)
+	timer.stop()
+	
 	emit_signal("timeout")
 
 
 func _process(delta: float) -> void:
 	timer_bar.value = timer.time_left
+	
 	timer_bar.label.text = str(stepify(timer.time_left, 0.1)).pad_decimals(1)
 	
+	if time_left() <= 0:
+		set_process(false)
 
 
 func _on_timer_timeout() -> void:
