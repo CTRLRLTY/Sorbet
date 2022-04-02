@@ -16,3 +16,9 @@ func pause() -> void:
 	for child in get_children():
 		if child.has_method("pause"):
 			child.pause()
+
+
+func reset() -> void:
+	for child in get_children():
+		if child.has_method("reset"):
+			child.reset()

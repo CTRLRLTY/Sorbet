@@ -102,6 +102,8 @@ func randomize_object() -> void:
 	
 	var i := randi() % f.size()
 	
+	modes.reset()
+	
 	modes.use_mode(i)
 	
 	f[i].call_func()
@@ -149,8 +151,6 @@ func randomize_fixed_character() -> void:
 #	print_debug(min_filled, " ", min_fill, " ", max_filled, " ", initial_fill, " ", total_fill)
 	
 	var filled_index := []
-	
-	fixed_character.reset()
 	
 	for i in range(total_fill):
 		var index := randi() % object_name.length()
