@@ -163,7 +163,6 @@ func randomize_fixed_character() -> void:
 	for i in unfilled_index:
 		characters.append(object_name[i])
 	
-	print_debug(characters)
 	var noise := []
 	
 	for i in btn_count - characters.size():

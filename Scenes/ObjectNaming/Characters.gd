@@ -15,4 +15,6 @@ func _ready() -> void:
 
 
 func _on_character_pressed(button: Button) -> void:
+	button.disabled = true
+	
 	emit_signal("character_selected", button.text)
