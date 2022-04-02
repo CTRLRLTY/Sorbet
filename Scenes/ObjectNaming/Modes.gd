@@ -10,3 +10,9 @@ func use_mode(mode: int) -> void:
 	
 	for child in get_children():
 		child.visible = child == m
+
+
+func pause() -> void:
+	for child in get_children():
+		if child.has_method("pause"):
+			child.pause()

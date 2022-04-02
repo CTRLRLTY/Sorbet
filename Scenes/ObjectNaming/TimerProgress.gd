@@ -30,6 +30,11 @@ func time_left() -> float:
 	return timer.time_left
 
 
+func pause() -> void:
+	set_process(false)
+	
+	timer.paused = true
+
 
 func end() -> void:
 	timer.stop()

@@ -185,7 +185,6 @@ func randomize_fixed_character() -> void:
 		
 		noise.append(c)
 	
-	
 	characters.append_array(noise)
 	characters.shuffle()
 	
@@ -198,6 +197,8 @@ func set_milestone_position(pos: int) -> void:
 	
 	if flag_reached:
 		centered_dialog.popup_over_dialog()
+		
+		modes.pause()
 
 
 func _on_choice_selected(choice: String) -> void:
@@ -222,7 +223,6 @@ func _on_choice_selected(choice: String) -> void:
 		var time_sec: float = max(time_left - decrease_on_wrong_amount, 0)
 		
 		modes.multi_choice.timer_progress.start(time_sec)
-		
 
 
 func _on_character_selected(c: String) -> void:
