@@ -192,7 +192,6 @@ __meta__ = {
 }
 
 [node name="MultiChoice" type="Control" parent="Modes"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
@@ -360,6 +359,7 @@ custom_colors/font_color = Color( 0.356863, 0.333333, 0.427451, 1 )
 custom_fonts/font = ExtResource( 13 )
 
 [node name="FixedCharacter" type="Control" parent="Modes"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 36 )

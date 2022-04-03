@@ -59,9 +59,9 @@ func initiate(answer: String, NAME_LIST: Array) -> void:
 
 func _on_choice_pressed(choice) -> void:
 	if choice == answer:
-		emit_signal("passed")
-		
 		reset()
+	
+		emit_signal("passed")
 	else:
 		var timer_decrease := 3.0
 		var time_left = timer_progress.time_left()

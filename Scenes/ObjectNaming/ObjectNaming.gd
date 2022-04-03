@@ -107,6 +107,7 @@ func set_milestone_position(pos: int) -> void:
 		modes.pause()
 	else:
 		randomize_object()
+		
 		modes.play_random(object_name, NAME_LIST)
 
 
@@ -132,13 +133,13 @@ func _on_failed() -> void:
 	self.milestone_position += 1
 
 
+func _on_play_again() -> void:
+	get_tree().reload_current_scene()
+
+
 func _on_quit() -> void:
 	SceneManager.goto_level_selection()
 
 
 func _on_menu() -> void:
 	SceneManager.goto_title_screen()
-
-
-func _on_play_again() -> void:
-	get_tree().reload_current_scene()
