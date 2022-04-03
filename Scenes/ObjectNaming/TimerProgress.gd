@@ -20,10 +20,14 @@ func start(time_sec := timer_bar.max_value) -> void:
 	set_process(true)
 	
 	timer.start(time_sec)
+	
+	print_debug("countdown start %s" % time_sec)
 
 
 func stop() -> void:
 	timer.stop()
+	
+	print_debug("countdown stop")
 
 
 func time_left() -> float:
@@ -34,16 +38,19 @@ func pause() -> void:
 	set_process(false)
 	
 	timer.paused = true
-
+	
+	print_debug("countdown pause at %s" % time_left())
 
 func end() -> void:
 	timer.stop()
 	
 	emit_signal("timeout")
+	
+	print_debug("countdown ended %s" % time_left())
 
 
 func _process(delta: float) -> void:
-	timer_bar.value = timer.time_left
+	timer_bar.value = time_left()
 	
 	timer_bar.label.text = str(stepify(timer.time_left, 0.1)).pad_decimals(1)
 	

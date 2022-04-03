@@ -18,6 +18,8 @@ func pause() -> void:
 func reset() -> void:
 	for btn in choices.get_children():
 		btn.disabled = false
+	
+	timer_progress.stop()
 
 
 func set_choices(text: PoolStringArray) -> void:
