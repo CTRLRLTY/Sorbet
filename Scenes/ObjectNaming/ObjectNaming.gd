@@ -69,8 +69,6 @@ func _ready() -> void:
 	modes.connect("passed", self, "_on_passed")
 	modes.connect("failed", self, "_on_failed")
 	
-	modes.fixed_character.connect("character_selected", self, "_on_character_selected")
-	
 	buttons.connect("quit_request", self, "_on_quit_request")
 	
 	centered_dialog.connect("quit", self, "_on_quit")
@@ -84,8 +82,8 @@ func _ready() -> void:
 	
 	randomize()
 	randomize_object()
-	modes.multi_choice.initiate(object_name, NAME_LIST)
-
+#	modes.multi_choice.initiate(object_name, NAME_LIST)
+	modes.fixed_character.initiate(object_name, NAME_LIST)
 
 func randomize_object() -> void:
 	var TEX_DIR := "res://Resources/Animals/"
@@ -110,64 +108,6 @@ func randomize_object() -> void:
 #	f[i].call_func()
 
 
-func randomize_fixed_character() -> void:
-	var fixed_character: Control = modes.fixed_character
-	var filled: Label = fixed_character.filled
-	
-	var max_fill_scale := 0.8
-	
-	var btn_count: int = fixed_character.char_count()
-	
-	var trailing := max(0, object_name.length() - btn_count)
-	
-	var min_filled: int = randi() % fixed_character.crosses.count()
-	var max_filled: int = floor(min(object_name.length(), btn_count) * max_fill_scale)
-	
-	var initial_fill := randi() % max_filled
-	var min_fill := abs(initial_fill - min_filled)
-	var total_fill := initial_fill + trailing + min_fill
-	
-#	print_debug(min_filled, " ", min_fill, " ", max_filled, " ", initial_fill, " ", total_fill)
-	
-	var filled_index := []
-	
-	for i in range(total_fill):
-		var index := randi() % object_name.length()
-		filled_index.append(index)
-	
-	filled.text = "_".repeat(object_name.length())
-	
-	var unfilled_index := []
-	
-	for i in object_name.length():
-		if filled_index.has(i):
-			filled.text[i] = object_name[i]
-		else:
-			unfilled_index.append(i)
-	
-	var characters := []
-	
-	for i in unfilled_index:
-		characters.append(object_name[i])
-	
-	var noise := []
-	
-	for i in btn_count - characters.size():
-		var ascii := (randi() % 25 + 1) + 97
-		var c := char(ascii)
-		
-		while characters.has(c) or noise.has(c):
-			ascii = (randi() % 25 + 1) + 97
-			c = char(ascii)
-		
-		noise.append(c)
-	
-	characters.append_array(noise)
-	characters.shuffle()
-	
-	fixed_character.set_characters(characters)
-
-
 func set_milestone_position(pos: int) -> void:
 	milestone_position = pos
 	var flag_reached := milestone_position == milestone_steps
@@ -176,46 +116,6 @@ func set_milestone_position(pos: int) -> void:
 		centered_dialog.popup_over_dialog()
 		
 		modes.pause()
-
-
-func _on_character_selected(c: String) -> void:
-	var fixed_character: Control = modes.fixed_character
-	var filled: Label = fixed_character.filled
-	var unfilled: PoolIntArray = filled.get_unfilled()
-	var crosses: Control = fixed_character.crosses
-	
-	var correct_answer := false
-	
-	for i in unfilled:
-		if c == object_name[i]:
-			filled.text[i] = c
-			
-			correct_answer = true
-			
-			break
-	
-	if correct_answer:
-		if filled.complete():
-			milestone.set_milestone_type(milestone_position, 
-				milestone.MilestoneType.SUCCESS)
-			
-			RuntimeManager.point_accumulated += milestone_step_point
-			
-			self.milestone_position += 1
-			
-			randomize_object()
-	else:
-		crosses.cross += 1
-		
-		if crosses.maxed():
-			milestone.set_milestone_type(milestone_position, 
-					milestone.MilestoneType.FAIL)
-			
-			RuntimeManager.point_accumulated -= milestone_step_point
-			
-			self.milestone_position += 1
-			
-			randomize_object()
 
 
 func _on_quit_request() -> void:
