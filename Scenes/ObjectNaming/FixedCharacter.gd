@@ -1,6 +1,8 @@
 extends Control
 
 signal character_selected(c)
+signal passed
+signal failed
 
 onready var filled: Label = $Filled
 onready var characters: Control = $Characters

@@ -66,8 +66,8 @@ func _ready() -> void:
 	
 	_name_bag = RNGBagSlot.new(NAME_LIST)
 	
-	modes.multi_choice.connect("choice_selected", self, "_on_choice_selected")
-	modes.multi_choice.timer_progress.connect("timeout", self, "_on_timer_timeout")
+	modes.connect("passed", self, "_on_passed")
+	modes.connect("failed", self, "_on_failed")
 	
 	modes.fixed_character.connect("character_selected", self, "_on_character_selected")
 	
@@ -84,6 +84,7 @@ func _ready() -> void:
 	
 	randomize()
 	randomize_object()
+	modes.multi_choice.initiate(object_name, NAME_LIST)
 
 
 func randomize_object() -> void:
@@ -102,33 +103,11 @@ func randomize_object() -> void:
 	
 	var i := randi() % f.size()
 	
-	modes.reset()
+#	modes.reset()
+#
+#	modes.use_mode(i)
 	
-	modes.use_mode(i)
-	
-	f[i].call_func()
-
-
-func randomize_multi_choice() -> void:
-	var choice_count: int = modes.multi_choice.choice_count()
-	
-	var choices := []
-	var buf := NAME_LIST.duplicate()
-	
-	for idx in range(choice_count):
-		var i: int = randi() % buf.size()
-		
-		var oname: String = buf.pop_at(i)
-		choices.append(oname)
-	
-	# Does choices contain one solution?
-	if not choices.has(object_name):
-		# Place the answer randomly
-		var answer_index := randi() % choice_count
-		choices[answer_index] = object_name
-		
-	modes.multi_choice.set_choices(choices)
-	modes.multi_choice.timer_progress.start()
+#	f[i].call_func()
 
 
 func randomize_fixed_character() -> void:
@@ -199,31 +178,6 @@ func set_milestone_position(pos: int) -> void:
 		modes.pause()
 
 
-func _on_choice_selected(choice: String) -> void:
-	var flag_reached := milestone_position == milestone_steps
-
-	if flag_reached:
-		modes.multi_choice.timer_progress.stop()
-		
-		return
-	
-	if choice == object_name:
-		milestone.set_milestone_type(milestone_position, 
-				milestone.MilestoneType.SUCCESS)
-				
-		RuntimeManager.point_accumulated += milestone_step_point
-				
-		self.milestone_position += 1
-		
-		randomize_object()
-	else:
-		var timer_decrease := 3.0
-		var time_left = modes.multi_choice.timer_progress.time_left()
-		var time_sec: float = max(time_left - timer_decrease, 0)
-		
-		modes.multi_choice.timer_progress.start(time_sec)
-
-
 func _on_character_selected(c: String) -> void:
 	var fixed_character: Control = modes.fixed_character
 	var filled: Label = fixed_character.filled
@@ -264,19 +218,26 @@ func _on_character_selected(c: String) -> void:
 			randomize_object()
 
 
-func _on_timer_timeout() -> void:
-	milestone.set_milestone_type(milestone_position, 
-			milestone.MilestoneType.FAIL)
-	
-	RuntimeManager.point_accumulated -= milestone_step_point
-
-	self.milestone_position += 1
-	
-	randomize_object()
-
-
 func _on_quit_request() -> void:
 	centered_dialog.popup_quit_dialog()
+
+
+func _on_passed() -> void:
+	milestone.set_milestone_type(milestone_position, 
+		milestone.MilestoneType.SUCCESS)
+	
+	RuntimeManager.point_accumulated += milestone_step_point
+	
+	self.milestone_position += 1
+
+
+func _on_failed() -> void:
+	milestone.set_milestone_type(milestone_position, 
+		milestone.MilestoneType.FAIL)
+	
+	RuntimeManager.point_accumulated -= milestone_step_point
+	
+	self.milestone_position += 1
 
 
 func _on_quit() -> void:

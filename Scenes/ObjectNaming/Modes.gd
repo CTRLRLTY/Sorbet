@@ -1,8 +1,17 @@
 extends Control
 
+signal passed
+signal failed
+
 
 onready var multi_choice: Control = $MultiChoice
 onready var fixed_character: Control = $FixedCharacter
+
+
+func _ready() -> void:
+	for child in get_children():
+		child.connect("passed", self, "emit_signal", ["passed"])
+		child.connect("failed", self, "emit_signal", ["failed"])
 
 
 func use_mode(mode: int) -> void:
