@@ -95,10 +95,6 @@ func randomize_object() -> void:
 	var texture: Texture = load(res_path)
 	
 	object_rect.texture = texture
-	
-	var f := [
-		funcref(self, "randomize_multi_choice"), 
-		funcref(self, "randomize_fixed_character")]
 
 
 func set_milestone_position(pos: int) -> void:
