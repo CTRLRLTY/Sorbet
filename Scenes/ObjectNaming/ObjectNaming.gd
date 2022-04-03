@@ -82,8 +82,9 @@ func _ready() -> void:
 	
 	randomize()
 	randomize_object()
-#	modes.multi_choice.initiate(object_name, NAME_LIST)
-	modes.fixed_character.initiate(object_name, NAME_LIST)
+	
+	modes.play_random(object_name, NAME_LIST)
+
 
 func randomize_object() -> void:
 	var TEX_DIR := "res://Resources/Animals/"
@@ -98,14 +99,6 @@ func randomize_object() -> void:
 	var f := [
 		funcref(self, "randomize_multi_choice"), 
 		funcref(self, "randomize_fixed_character")]
-	
-	var i := randi() % f.size()
-	
-#	modes.reset()
-#
-#	modes.use_mode(i)
-	
-#	f[i].call_func()
 
 
 func set_milestone_position(pos: int) -> void:
@@ -116,6 +109,9 @@ func set_milestone_position(pos: int) -> void:
 		centered_dialog.popup_over_dialog()
 		
 		modes.pause()
+	else:
+		randomize_object()
+		modes.play_random(object_name, NAME_LIST)
 
 
 func _on_quit_request() -> void:

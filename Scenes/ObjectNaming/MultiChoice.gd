@@ -1,6 +1,5 @@
 extends Control
 
-signal choice_selected(choice)
 signal passed
 signal failed
 

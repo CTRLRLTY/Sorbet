@@ -14,11 +14,22 @@ func _ready() -> void:
 		child.connect("failed", self, "emit_signal", ["failed"])
 
 
-func use_mode(mode: int) -> void:
+func play(mode: int, answer: String, NAME_LIST: Array) -> void:
+	reset()
+	
 	var m := get_child(mode)
 	
 	for child in get_children():
 		child.visible = child == m
+	
+	
+	m.initiate(answer, NAME_LIST)
+
+
+func play_random(answer: String, NAME_LIST: Array) -> void:
+	var mode := randi() % get_child_count()
+	
+	play(mode, answer, NAME_LIST)
 
 
 func pause() -> void:

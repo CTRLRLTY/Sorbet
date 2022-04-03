@@ -1,6 +1,5 @@
 extends Control
 
-signal character_selected(c)
 signal passed
 signal failed
 
@@ -95,8 +94,6 @@ func char_count() -> int:
 
 
 func _on_character_selected(c: String) -> void:
-	emit_signal("character_selected", c)
-	
 	var unfilled: PoolIntArray = filled.get_unfilled()
 	
 	var correct_answer := false
