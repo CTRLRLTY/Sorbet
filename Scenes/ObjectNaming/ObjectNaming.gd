@@ -86,6 +86,10 @@ func _ready() -> void:
 	modes.play_random(object_name, NAME_LIST)
 
 
+func _exit_tree() -> void:
+	RuntimeManager.flush_accumulated_points()
+
+
 func randomize_object() -> void:
 	var TEX_DIR := "res://Resources/Animals/"
 	
@@ -120,7 +124,6 @@ func _on_passed() -> void:
 		milestone.MilestoneType.SUCCESS)
 	
 	RuntimeManager.point_accumulated += milestone_step_point
-	RuntimeManager.points += RuntimeManager.point_accumulated
 	
 	self.milestone_position += 1
 
@@ -130,7 +133,6 @@ func _on_failed() -> void:
 		milestone.MilestoneType.FAIL)
 	
 	RuntimeManager.point_accumulated -= milestone_step_point
-	RuntimeManager.points += RuntimeManager.point_accumulated
 	
 	self.milestone_position += 1
 

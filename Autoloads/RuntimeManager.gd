@@ -14,6 +14,11 @@ func _ready() -> void:
 	OS.low_processor_usage_mode = true
 
 
+func flush_accumulated_points() -> void:
+	points += point_accumulated
+	point_accumulated = 0
+
+
 func set_login(p_login: bool) -> void:
 	login = p_login 
 	
