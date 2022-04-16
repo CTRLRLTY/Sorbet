@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Resources/Title.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/TitleScreen/LoginScreen.gd" type="Script" id=2]
@@ -17,14 +17,31 @@
 [ext_resource path="res://Scenes/TitleScreen/BottomButton.gd" type="Script" id=15]
 [ext_resource path="res://Resources/Icons/leaderboard.png" type="Texture" id=16]
 [ext_resource path="res://Resources/Icons/globe.png" type="Texture" id=17]
+[ext_resource path="res://Resources/fonts/Bungee-Regular-15.tres" type="DynamicFont" id=18]
 
-[sub_resource type="StyleBoxEmpty" id=5]
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.788235, 0.788235, 0.788235, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.6, 0.615686, 0.623529, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
-[sub_resource type="StyleBoxEmpty" id=4]
-
-[sub_resource type="StyleBoxEmpty" id=6]
-
-[sub_resource type="StyleBoxEmpty" id=7]
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.6, 0.615686, 0.623529, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.6, 0.615686, 0.623529, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.788235, 0.788235, 0.788235, 1 )
@@ -49,6 +66,14 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
@@ -80,6 +105,91 @@ margin_bottom = 176.0
 mouse_filter = 2
 texture = ExtResource( 1 )
 stretch_mode = 6
+
+[node name="Top" type="HBoxContainer" parent="."]
+anchor_left = 0.0277778
+anchor_top = 0.0125
+anchor_right = 0.972222
+anchor_bottom = 0.0525
+
+[node name="Score" type="Panel" parent="Top"]
+margin_right = 166.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 166, 32 )
+custom_styles/panel = SubResource( 10 )
+
+[node name="IconPanel" type="Panel" parent="Top/Score"]
+margin_right = 32.0
+margin_bottom = 2.0
+rect_min_size = Vector2( 32, 32 )
+custom_styles/panel = SubResource( 11 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="Top/Score/IconPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="Top/Score"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = -16.0
+margin_right = 69.0
+margin_bottom = 16.0
+custom_colors/font_color = Color( 0.6, 0.615686, 0.623529, 1 )
+custom_fonts/font = ExtResource( 18 )
+text = "2000000 PTS"
+valign = 1
+clip_text = true
+
+[node name="Language" type="Button" parent="Top"]
+margin_left = 233.0
+margin_right = 340.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 107, 32 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 9 )
+
+[node name="PanelContainer" type="Panel" parent="Top/Language"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="Top/Language/PanelContainer"]
+modulate = Color( 0.847059, 0.964706, 0.678431, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 17 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Top/Language"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.5
+margin_top = -15.0
+margin_right = 51.5
+margin_bottom = 15.0
+rect_min_size = Vector2( 72, 30 )
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "EN"
+align = 1
+valign = 1
+clip_text = true
 
 [node name="Screens" type="PanelContainer" parent="."]
 anchor_left = 0.5
@@ -354,47 +464,6 @@ custom_colors/font_color = Color( 0.666667, 0.623529, 0.792157, 1 )
 custom_fonts/font = ExtResource( 5 )
 custom_styles/normal = ExtResource( 8 )
 text = "Logout"
-
-[node name="Language" type="Button" parent="."]
-margin_left = 240.0
-margin_top = 10.0
-margin_right = 347.0
-margin_bottom = 42.0
-mouse_default_cursor_shape = 2
-custom_styles/hover = SubResource( 9 )
-custom_styles/pressed = SubResource( 9 )
-custom_styles/normal = SubResource( 9 )
-
-[node name="PanelContainer" type="Panel" parent="Language"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-mouse_filter = 2
-custom_styles/panel = SubResource( 8 )
-
-[node name="TextureRect" type="TextureRect" parent="Language/PanelContainer"]
-modulate = Color( 0.847059, 0.964706, 0.678431, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-texture = ExtResource( 17 )
-stretch_mode = 4
-
-[node name="Label" type="Label" parent="Language"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -20.5
-margin_top = -15.0
-margin_right = 51.5
-margin_bottom = 15.0
-custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
-custom_fonts/font = ExtResource( 5 )
-text = "EN"
-align = 1
-valign = 1
-clip_text = true
 
 [connection signal="pressed" from="Screens/LoginScreen/Main/Guest" to="." method="_on_Guest_pressed"]
 [connection signal="pressed" from="Screens/UserScreen/VBoxContainer/ObjectNaming" to="Screens/UserScreen" method="_on_ObjectNaming_pressed"]
