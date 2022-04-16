@@ -120,6 +120,7 @@ func _on_passed() -> void:
 		milestone.MilestoneType.SUCCESS)
 	
 	RuntimeManager.point_accumulated += milestone_step_point
+	RuntimeManager.points += RuntimeManager.point_accumulated
 	
 	self.milestone_position += 1
 
@@ -129,6 +130,7 @@ func _on_failed() -> void:
 		milestone.MilestoneType.FAIL)
 	
 	RuntimeManager.point_accumulated -= milestone_step_point
+	RuntimeManager.points += RuntimeManager.point_accumulated
 	
 	self.milestone_position += 1
 

@@ -5,7 +5,7 @@ onready var label: Label = $Label
 
 
 func _ready() -> void:
-	hide()
+	visible = RuntimeManager.login
 	
 	RuntimeManager.connect("user_login", self, "show")
 	RuntimeManager.connect("user_logout", self, "hide")
