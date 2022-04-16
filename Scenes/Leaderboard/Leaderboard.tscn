@@ -87,17 +87,20 @@ margin_top = 44.0
 margin_right = 306.0
 margin_bottom = 573.0
 rect_min_size = Vector2( 0, 529 )
+mouse_default_cursor_shape = 2
 theme = SubResource( 3 )
 
 [node name="Page" type="VBoxContainer" parent="Main/ScrollContainer"]
 margin_right = 306.0
-margin_bottom = 611.0
+margin_bottom = 816.0
+mouse_filter = 2
 custom_constants/separation = 4
 
 [node name="RankItem" type="PanelContainer" parent="Main/ScrollContainer/Page"]
 margin_right = 306.0
 margin_bottom = 37.0
 rect_min_size = Vector2( 306, 37 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Main/ScrollContainer/Page/RankItem"]
@@ -105,6 +108,7 @@ margin_left = 3.0
 margin_top = 3.0
 margin_right = 303.0
 margin_bottom = 34.0
+mouse_filter = 2
 custom_constants/margin_right = 11
 custom_constants/margin_top = 6
 custom_constants/margin_left = 11
@@ -115,6 +119,7 @@ margin_left = 11.0
 margin_top = 6.0
 margin_right = 289.0
 margin_bottom = 25.0
+mouse_filter = 2
 
 [node name="Rank" type="Label" parent="Main/ScrollContainer/Page/RankItem/MarginContainer/HBoxContainer"]
 margin_top = 1.0
@@ -152,6 +157,7 @@ margin_top = 41.0
 margin_right = 306.0
 margin_bottom = 78.0
 rect_min_size = Vector2( 306, 37 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Main/ScrollContainer/Page/RankItem2"]
@@ -159,6 +165,7 @@ margin_left = 3.0
 margin_top = 3.0
 margin_right = 303.0
 margin_bottom = 34.0
+mouse_filter = 2
 custom_constants/margin_right = 11
 custom_constants/margin_top = 6
 custom_constants/margin_left = 11
@@ -169,6 +176,7 @@ margin_left = 11.0
 margin_top = 6.0
 margin_right = 289.0
 margin_bottom = 25.0
+mouse_filter = 2
 
 [node name="Rank" type="Label" parent="Main/ScrollContainer/Page/RankItem2/MarginContainer/HBoxContainer"]
 margin_top = 1.0
@@ -206,6 +214,7 @@ margin_top = 82.0
 margin_right = 306.0
 margin_bottom = 119.0
 rect_min_size = Vector2( 306, 37 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Main/ScrollContainer/Page/RankItem3"]
@@ -213,6 +222,7 @@ margin_left = 3.0
 margin_top = 3.0
 margin_right = 303.0
 margin_bottom = 34.0
+mouse_filter = 2
 custom_constants/margin_right = 11
 custom_constants/margin_top = 6
 custom_constants/margin_left = 11
@@ -223,6 +233,7 @@ margin_left = 11.0
 margin_top = 6.0
 margin_right = 289.0
 margin_bottom = 25.0
+mouse_filter = 2
 
 [node name="Rank" type="Label" parent="Main/ScrollContainer/Page/RankItem3/MarginContainer/HBoxContainer"]
 margin_top = 1.0
@@ -260,6 +271,7 @@ margin_top = 123.0
 margin_right = 306.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 306, 37 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Main/ScrollContainer/Page/RankItem4"]
@@ -267,6 +279,7 @@ margin_left = 3.0
 margin_top = 3.0
 margin_right = 303.0
 margin_bottom = 34.0
+mouse_filter = 2
 custom_constants/margin_right = 11
 custom_constants/margin_top = 6
 custom_constants/margin_left = 11
@@ -277,6 +290,7 @@ margin_left = 11.0
 margin_top = 6.0
 margin_right = 289.0
 margin_bottom = 25.0
+mouse_filter = 2
 
 [node name="Rank" type="Label" parent="Main/ScrollContainer/Page/RankItem4/MarginContainer/HBoxContainer"]
 margin_top = 1.0
@@ -314,6 +328,7 @@ margin_top = 164.0
 margin_right = 306.0
 margin_bottom = 201.0
 rect_min_size = Vector2( 306, 37 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Main/ScrollContainer/Page/RankItem5"]
@@ -321,6 +336,7 @@ margin_left = 3.0
 margin_top = 3.0
 margin_right = 303.0
 margin_bottom = 34.0
+mouse_filter = 2
 custom_constants/margin_right = 11
 custom_constants/margin_top = 6
 custom_constants/margin_left = 11
@@ -331,6 +347,7 @@ margin_left = 11.0
 margin_top = 6.0
 margin_right = 289.0
 margin_bottom = 25.0
+mouse_filter = 2
 
 [node name="Rank" type="Label" parent="Main/ScrollContainer/Page/RankItem5/MarginContainer/HBoxContainer"]
 margin_top = 1.0
@@ -368,6 +385,7 @@ margin_top = 205.0
 margin_right = 306.0
 margin_bottom = 242.0
 rect_min_size = Vector2( 306, 37 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Main/ScrollContainer/Page/RankItem6"]
@@ -375,6 +393,7 @@ margin_left = 3.0
 margin_top = 3.0
 margin_right = 303.0
 margin_bottom = 34.0
+mouse_filter = 2
 custom_constants/margin_right = 11
 custom_constants/margin_top = 6
 custom_constants/margin_left = 11
@@ -385,6 +404,7 @@ margin_left = 11.0
 margin_top = 6.0
 margin_right = 289.0
 margin_bottom = 25.0
+mouse_filter = 2
 
 [node name="Rank" type="Label" parent="Main/ScrollContainer/Page/RankItem6/MarginContainer/HBoxContainer"]
 margin_top = 1.0
@@ -422,6 +442,7 @@ margin_top = 246.0
 margin_right = 306.0
 margin_bottom = 283.0
 rect_min_size = Vector2( 306, 37 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Main/ScrollContainer/Page/RankItem7"]
@@ -429,6 +450,7 @@ margin_left = 3.0
 margin_top = 3.0
 margin_right = 303.0
 margin_bottom = 34.0
+mouse_filter = 2
 custom_constants/margin_right = 11
 custom_constants/margin_top = 6
 custom_constants/margin_left = 11
@@ -439,6 +461,7 @@ margin_left = 11.0
 margin_top = 6.0
 margin_right = 289.0
 margin_bottom = 25.0
+mouse_filter = 2
 
 [node name="Rank" type="Label" parent="Main/ScrollContainer/Page/RankItem7/MarginContainer/HBoxContainer"]
 margin_top = 1.0
@@ -476,6 +499,7 @@ margin_top = 287.0
 margin_right = 306.0
 margin_bottom = 324.0
 rect_min_size = Vector2( 306, 37 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Main/ScrollContainer/Page/RankItem8"]
@@ -483,6 +507,7 @@ margin_left = 3.0
 margin_top = 3.0
 margin_right = 303.0
 margin_bottom = 34.0
+mouse_filter = 2
 custom_constants/margin_right = 11
 custom_constants/margin_top = 6
 custom_constants/margin_left = 11
@@ -493,6 +518,7 @@ margin_left = 11.0
 margin_top = 6.0
 margin_right = 289.0
 margin_bottom = 25.0
+mouse_filter = 2
 
 [node name="Rank" type="Label" parent="Main/ScrollContainer/Page/RankItem8/MarginContainer/HBoxContainer"]
 margin_top = 1.0
@@ -530,6 +556,7 @@ margin_top = 328.0
 margin_right = 306.0
 margin_bottom = 365.0
 rect_min_size = Vector2( 306, 37 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Main/ScrollContainer/Page/RankItem9"]
@@ -537,6 +564,7 @@ margin_left = 3.0
 margin_top = 3.0
 margin_right = 303.0
 margin_bottom = 34.0
+mouse_filter = 2
 custom_constants/margin_right = 11
 custom_constants/margin_top = 6
 custom_constants/margin_left = 11
@@ -547,6 +575,7 @@ margin_left = 11.0
 margin_top = 6.0
 margin_right = 289.0
 margin_bottom = 25.0
+mouse_filter = 2
 
 [node name="Rank" type="Label" parent="Main/ScrollContainer/Page/RankItem9/MarginContainer/HBoxContainer"]
 margin_top = 1.0
@@ -584,6 +613,7 @@ margin_top = 369.0
 margin_right = 306.0
 margin_bottom = 406.0
 rect_min_size = Vector2( 306, 37 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Main/ScrollContainer/Page/RankItem10"]
@@ -591,6 +621,7 @@ margin_left = 3.0
 margin_top = 3.0
 margin_right = 303.0
 margin_bottom = 34.0
+mouse_filter = 2
 custom_constants/margin_right = 11
 custom_constants/margin_top = 6
 custom_constants/margin_left = 11
@@ -601,6 +632,7 @@ margin_left = 11.0
 margin_top = 6.0
 margin_right = 289.0
 margin_bottom = 25.0
+mouse_filter = 2
 
 [node name="Rank" type="Label" parent="Main/ScrollContainer/Page/RankItem10/MarginContainer/HBoxContainer"]
 margin_top = 1.0
@@ -638,6 +670,7 @@ margin_top = 410.0
 margin_right = 306.0
 margin_bottom = 447.0
 rect_min_size = Vector2( 306, 37 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Main/ScrollContainer/Page/RankItem11"]
@@ -645,6 +678,7 @@ margin_left = 3.0
 margin_top = 3.0
 margin_right = 303.0
 margin_bottom = 34.0
+mouse_filter = 2
 custom_constants/margin_right = 11
 custom_constants/margin_top = 6
 custom_constants/margin_left = 11
@@ -655,6 +689,7 @@ margin_left = 11.0
 margin_top = 6.0
 margin_right = 289.0
 margin_bottom = 25.0
+mouse_filter = 2
 
 [node name="Rank" type="Label" parent="Main/ScrollContainer/Page/RankItem11/MarginContainer/HBoxContainer"]
 margin_top = 1.0
@@ -692,6 +727,7 @@ margin_top = 451.0
 margin_right = 306.0
 margin_bottom = 488.0
 rect_min_size = Vector2( 306, 37 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Main/ScrollContainer/Page/RankItem12"]
@@ -699,6 +735,7 @@ margin_left = 3.0
 margin_top = 3.0
 margin_right = 303.0
 margin_bottom = 34.0
+mouse_filter = 2
 custom_constants/margin_right = 11
 custom_constants/margin_top = 6
 custom_constants/margin_left = 11
@@ -709,6 +746,7 @@ margin_left = 11.0
 margin_top = 6.0
 margin_right = 289.0
 margin_bottom = 25.0
+mouse_filter = 2
 
 [node name="Rank" type="Label" parent="Main/ScrollContainer/Page/RankItem12/MarginContainer/HBoxContainer"]
 margin_top = 1.0
@@ -746,6 +784,7 @@ margin_top = 492.0
 margin_right = 306.0
 margin_bottom = 529.0
 rect_min_size = Vector2( 306, 37 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Main/ScrollContainer/Page/RankItem13"]
@@ -753,6 +792,7 @@ margin_left = 3.0
 margin_top = 3.0
 margin_right = 303.0
 margin_bottom = 34.0
+mouse_filter = 2
 custom_constants/margin_right = 11
 custom_constants/margin_top = 6
 custom_constants/margin_left = 11
@@ -763,6 +803,7 @@ margin_left = 11.0
 margin_top = 6.0
 margin_right = 289.0
 margin_bottom = 25.0
+mouse_filter = 2
 
 [node name="Rank" type="Label" parent="Main/ScrollContainer/Page/RankItem13/MarginContainer/HBoxContainer"]
 margin_top = 1.0
@@ -800,6 +841,7 @@ margin_top = 533.0
 margin_right = 306.0
 margin_bottom = 570.0
 rect_min_size = Vector2( 306, 37 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Main/ScrollContainer/Page/RankItem14"]
@@ -807,6 +849,7 @@ margin_left = 3.0
 margin_top = 3.0
 margin_right = 303.0
 margin_bottom = 34.0
+mouse_filter = 2
 custom_constants/margin_right = 11
 custom_constants/margin_top = 6
 custom_constants/margin_left = 11
@@ -817,6 +860,7 @@ margin_left = 11.0
 margin_top = 6.0
 margin_right = 289.0
 margin_bottom = 25.0
+mouse_filter = 2
 
 [node name="Rank" type="Label" parent="Main/ScrollContainer/Page/RankItem14/MarginContainer/HBoxContainer"]
 margin_top = 1.0
@@ -854,6 +898,7 @@ margin_top = 574.0
 margin_right = 306.0
 margin_bottom = 611.0
 rect_min_size = Vector2( 306, 37 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Main/ScrollContainer/Page/RankItem15"]
@@ -861,6 +906,7 @@ margin_left = 3.0
 margin_top = 3.0
 margin_right = 303.0
 margin_bottom = 34.0
+mouse_filter = 2
 custom_constants/margin_right = 11
 custom_constants/margin_top = 6
 custom_constants/margin_left = 11
@@ -871,6 +917,7 @@ margin_left = 11.0
 margin_top = 6.0
 margin_right = 289.0
 margin_bottom = 25.0
+mouse_filter = 2
 
 [node name="Rank" type="Label" parent="Main/ScrollContainer/Page/RankItem15/MarginContainer/HBoxContainer"]
 margin_top = 1.0
@@ -893,6 +940,291 @@ custom_fonts/font = ExtResource( 7 )
 text = "@____________"
 
 [node name="Points" type="Label" parent="Main/ScrollContainer/Page/RankItem15/MarginContainer/HBoxContainer"]
+margin_left = 206.0
+margin_top = 1.0
+margin_right = 278.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 70, 0 )
+size_flags_horizontal = 0
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "000000"
+
+[node name="RankItem16" type="PanelContainer" parent="Main/ScrollContainer/Page"]
+margin_top = 615.0
+margin_right = 306.0
+margin_bottom = 652.0
+rect_min_size = Vector2( 306, 37 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Main/ScrollContainer/Page/RankItem16"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 303.0
+margin_bottom = 34.0
+mouse_filter = 2
+custom_constants/margin_right = 11
+custom_constants/margin_top = 6
+custom_constants/margin_left = 11
+custom_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/ScrollContainer/Page/RankItem16/MarginContainer"]
+margin_left = 11.0
+margin_top = 6.0
+margin_right = 289.0
+margin_bottom = 25.0
+mouse_filter = 2
+
+[node name="Rank" type="Label" parent="Main/ScrollContainer/Page/RankItem16/MarginContainer/HBoxContainer"]
+margin_top = 1.0
+margin_right = 36.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 34, 0 )
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "000"
+
+[node name="Username" type="Label" parent="Main/ScrollContainer/Page/RankItem16/MarginContainer/HBoxContainer"]
+margin_left = 62.0
+margin_top = 3.0
+margin_right = 180.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 117, 0 )
+size_flags_horizontal = 6
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 7 )
+text = "@____________"
+
+[node name="Points" type="Label" parent="Main/ScrollContainer/Page/RankItem16/MarginContainer/HBoxContainer"]
+margin_left = 206.0
+margin_top = 1.0
+margin_right = 278.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 70, 0 )
+size_flags_horizontal = 0
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "000000"
+
+[node name="RankItem17" type="PanelContainer" parent="Main/ScrollContainer/Page"]
+margin_top = 656.0
+margin_right = 306.0
+margin_bottom = 693.0
+rect_min_size = Vector2( 306, 37 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Main/ScrollContainer/Page/RankItem17"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 303.0
+margin_bottom = 34.0
+mouse_filter = 2
+custom_constants/margin_right = 11
+custom_constants/margin_top = 6
+custom_constants/margin_left = 11
+custom_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/ScrollContainer/Page/RankItem17/MarginContainer"]
+margin_left = 11.0
+margin_top = 6.0
+margin_right = 289.0
+margin_bottom = 25.0
+mouse_filter = 2
+
+[node name="Rank" type="Label" parent="Main/ScrollContainer/Page/RankItem17/MarginContainer/HBoxContainer"]
+margin_top = 1.0
+margin_right = 36.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 34, 0 )
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "000"
+
+[node name="Username" type="Label" parent="Main/ScrollContainer/Page/RankItem17/MarginContainer/HBoxContainer"]
+margin_left = 62.0
+margin_top = 3.0
+margin_right = 180.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 117, 0 )
+size_flags_horizontal = 6
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 7 )
+text = "@____________"
+
+[node name="Points" type="Label" parent="Main/ScrollContainer/Page/RankItem17/MarginContainer/HBoxContainer"]
+margin_left = 206.0
+margin_top = 1.0
+margin_right = 278.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 70, 0 )
+size_flags_horizontal = 0
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "000000"
+
+[node name="RankItem18" type="PanelContainer" parent="Main/ScrollContainer/Page"]
+margin_top = 697.0
+margin_right = 306.0
+margin_bottom = 734.0
+rect_min_size = Vector2( 306, 37 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Main/ScrollContainer/Page/RankItem18"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 303.0
+margin_bottom = 34.0
+mouse_filter = 2
+custom_constants/margin_right = 11
+custom_constants/margin_top = 6
+custom_constants/margin_left = 11
+custom_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/ScrollContainer/Page/RankItem18/MarginContainer"]
+margin_left = 11.0
+margin_top = 6.0
+margin_right = 289.0
+margin_bottom = 25.0
+mouse_filter = 2
+
+[node name="Rank" type="Label" parent="Main/ScrollContainer/Page/RankItem18/MarginContainer/HBoxContainer"]
+margin_top = 1.0
+margin_right = 36.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 34, 0 )
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "000"
+
+[node name="Username" type="Label" parent="Main/ScrollContainer/Page/RankItem18/MarginContainer/HBoxContainer"]
+margin_left = 62.0
+margin_top = 3.0
+margin_right = 180.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 117, 0 )
+size_flags_horizontal = 6
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 7 )
+text = "@____________"
+
+[node name="Points" type="Label" parent="Main/ScrollContainer/Page/RankItem18/MarginContainer/HBoxContainer"]
+margin_left = 206.0
+margin_top = 1.0
+margin_right = 278.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 70, 0 )
+size_flags_horizontal = 0
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "000000"
+
+[node name="RankItem19" type="PanelContainer" parent="Main/ScrollContainer/Page"]
+margin_top = 738.0
+margin_right = 306.0
+margin_bottom = 775.0
+rect_min_size = Vector2( 306, 37 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Main/ScrollContainer/Page/RankItem19"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 303.0
+margin_bottom = 34.0
+mouse_filter = 2
+custom_constants/margin_right = 11
+custom_constants/margin_top = 6
+custom_constants/margin_left = 11
+custom_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/ScrollContainer/Page/RankItem19/MarginContainer"]
+margin_left = 11.0
+margin_top = 6.0
+margin_right = 289.0
+margin_bottom = 25.0
+mouse_filter = 2
+
+[node name="Rank" type="Label" parent="Main/ScrollContainer/Page/RankItem19/MarginContainer/HBoxContainer"]
+margin_top = 1.0
+margin_right = 36.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 34, 0 )
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "000"
+
+[node name="Username" type="Label" parent="Main/ScrollContainer/Page/RankItem19/MarginContainer/HBoxContainer"]
+margin_left = 62.0
+margin_top = 3.0
+margin_right = 180.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 117, 0 )
+size_flags_horizontal = 6
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 7 )
+text = "@____________"
+
+[node name="Points" type="Label" parent="Main/ScrollContainer/Page/RankItem19/MarginContainer/HBoxContainer"]
+margin_left = 206.0
+margin_top = 1.0
+margin_right = 278.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 70, 0 )
+size_flags_horizontal = 0
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "000000"
+
+[node name="RankItem20" type="PanelContainer" parent="Main/ScrollContainer/Page"]
+margin_top = 779.0
+margin_right = 306.0
+margin_bottom = 816.0
+rect_min_size = Vector2( 306, 37 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Main/ScrollContainer/Page/RankItem20"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 303.0
+margin_bottom = 34.0
+mouse_filter = 2
+custom_constants/margin_right = 11
+custom_constants/margin_top = 6
+custom_constants/margin_left = 11
+custom_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/ScrollContainer/Page/RankItem20/MarginContainer"]
+margin_left = 11.0
+margin_top = 6.0
+margin_right = 289.0
+margin_bottom = 25.0
+mouse_filter = 2
+
+[node name="Rank" type="Label" parent="Main/ScrollContainer/Page/RankItem20/MarginContainer/HBoxContainer"]
+margin_top = 1.0
+margin_right = 36.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 34, 0 )
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "000"
+
+[node name="Username" type="Label" parent="Main/ScrollContainer/Page/RankItem20/MarginContainer/HBoxContainer"]
+margin_left = 62.0
+margin_top = 3.0
+margin_right = 180.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 117, 0 )
+size_flags_horizontal = 6
+custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+custom_fonts/font = ExtResource( 7 )
+text = "@____________"
+
+[node name="Points" type="Label" parent="Main/ScrollContainer/Page/RankItem20/MarginContainer/HBoxContainer"]
 margin_left = 206.0
 margin_top = 1.0
 margin_right = 278.0
