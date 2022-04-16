@@ -448,6 +448,10 @@ custom_styles/panel = SubResource( 7 )
 script = ExtResource( 15 )
 
 [node name="CreateAccount" parent="BottomButton" instance=ExtResource( 20 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 300.0
+margin_bottom = 51.0
 
 [node name="Logout" type="Button" parent="BottomButton"]
 visible = false

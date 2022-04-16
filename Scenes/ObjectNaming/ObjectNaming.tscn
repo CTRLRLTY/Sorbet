@@ -177,9 +177,9 @@ rect_scale = Vector2( 1.00184, 1 )
 script = ExtResource( 12 )
 
 [node name="HBox" type="HBoxContainer" parent="Milestone"]
-margin_left = 32.0
+margin_left = 44.0
 margin_top = 2.0
-margin_right = 327.0
+margin_right = 315.0
 margin_bottom = 37.0
 custom_constants/separation = 0
 
@@ -579,6 +579,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="CenteredDialog" type="Panel" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 5 )
@@ -588,6 +589,7 @@ __meta__ = {
 }
 
 [node name="OverDialog" type="Control" parent="CenteredDialog"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 35 )
