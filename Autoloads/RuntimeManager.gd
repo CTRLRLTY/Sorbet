@@ -7,6 +7,8 @@ signal user_logout
 var login := false setget set_login
 var point_accumulated := 0
 
+var points := 0 
+
 
 func _ready() -> void:
 	OS.low_processor_usage_mode = true
