@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/SceneTitleLabel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/SceneBackground.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Resources/Styleboxes/GreenButton.stylebox" type="StyleBox" id=5]
 [ext_resource path="res://Resources/Styleboxes/PurpleButton.stylebox" type="StyleBox" id=6]
 [ext_resource path="res://Resources/fonts/Bungee-Regular-12.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Scenes/Leaderboard/Leaderboard.gd" type="Script" id=8]
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
@@ -28,6 +29,7 @@ corner_radius_bottom_left = 3
 [node name="Leaderboard" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 8 )
 
 [node name="Background" parent="." instance=ExtResource( 2 )]
 
@@ -1288,3 +1290,5 @@ size_flags_horizontal = 0
 custom_colors/font_color = Color( 0.52549, 0.537255, 0.545098, 1 )
 custom_fonts/font = ExtResource( 4 )
 text = "000000"
+
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
