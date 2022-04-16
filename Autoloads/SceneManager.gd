@@ -13,6 +13,12 @@ func goto_title_screen() -> void:
 	change_scene_to(scene)
 
 
+func goto_leaderboard() -> void:
+	var scene: PackedScene = load("res://Scenes/Leaderboard/Leaderboard.tscn")
+	
+	change_scene_to(scene)
+
+
 func goto_level_object_naming() -> void:
 	var scene: PackedScene = load("res://Scenes/ObjectNaming/ObjectNaming.tscn")
 	

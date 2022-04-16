@@ -212,6 +212,7 @@ __meta__ = {
 }
 
 [node name="LoginScreen" type="PanelContainer" parent="Screens" groups=["auth_screen"]]
+visible = false
 margin_right = 300.0
 margin_bottom = 193.0
 mouse_filter = 2
@@ -391,7 +392,6 @@ size_flags_horizontal = 3
 text = "SIGNUP"
 
 [node name="UserScreen" type="PanelContainer" parent="Screens" groups=["auth_screen"]]
-visible = false
 margin_right = 300.0
 margin_bottom = 190.0
 mouse_filter = 2
@@ -409,14 +409,15 @@ custom_constants/separation = 20
 
 [node name="ObjectNaming" parent="Screens/UserScreen/VBoxContainer" instance=ExtResource( 11 )]
 margin_right = 300.0
+margin_bottom = 51.0
 ui_icon = ExtResource( 7 )
 ui_text = "Object Naming"
 ui_font_color = Color( 0.847059, 0.964706, 0.678431, 1 )
 
 [node name="Leaderboard" parent="Screens/UserScreen/VBoxContainer" instance=ExtResource( 11 )]
-margin_top = 70.0
+margin_top = 71.0
 margin_right = 300.0
-margin_bottom = 120.0
+margin_bottom = 122.0
 custom_styles/normal = ExtResource( 8 )
 ui_icon = ExtResource( 16 )
 ui_text = "Leaderboard"
@@ -466,4 +467,5 @@ text = "Logout"
 
 [connection signal="pressed" from="Screens/LoginScreen/Main/Guest" to="." method="_on_Guest_pressed"]
 [connection signal="pressed" from="Screens/UserScreen/VBoxContainer/ObjectNaming" to="Screens/UserScreen" method="_on_ObjectNaming_pressed"]
+[connection signal="pressed" from="Screens/UserScreen/VBoxContainer/Leaderboard" to="Screens/UserScreen" method="_on_Leaderboard_pressed"]
 [connection signal="pressed" from="BottomButton/Logout" to="." method="_on_Logout_pressed"]

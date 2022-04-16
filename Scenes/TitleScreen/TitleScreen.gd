@@ -25,3 +25,4 @@ func _on_Logout_pressed() -> void:
 	bottom_button.show_button(bottom_button.create_account)
 	
 	RuntimeManager.login = false
+
