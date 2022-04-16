@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Resources/Title.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/TitleScreen/LoginScreen.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Resources/Icons/globe.png" type="Texture" id=17]
 [ext_resource path="res://Resources/fonts/Bungee-Regular-15.tres" type="DynamicFont" id=18]
 [ext_resource path="res://Scenes/TitleScreen/Score.gd" type="Script" id=19]
+[ext_resource path="res://Scenes/SceneBottomButton.tscn" type="PackedScene" id=20]
 
 [sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.788235, 0.788235, 0.788235, 1 )
@@ -446,15 +447,7 @@ rect_min_size = Vector2( 300, 51 )
 custom_styles/panel = SubResource( 7 )
 script = ExtResource( 15 )
 
-[node name="CreateAccount" type="Button" parent="BottomButton"]
-margin_right = 300.0
-margin_bottom = 51.0
-rect_min_size = Vector2( 0, 50 )
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0.666667, 0.623529, 0.792157, 1 )
-custom_fonts/font = ExtResource( 5 )
-custom_styles/normal = ExtResource( 8 )
-text = "Create Account"
+[node name="CreateAccount" parent="BottomButton" instance=ExtResource( 20 )]
 
 [node name="Logout" type="Button" parent="BottomButton"]
 visible = false
@@ -469,5 +462,4 @@ text = "Logout"
 
 [connection signal="pressed" from="Screens/LoginScreen/Main/Guest" to="." method="_on_Guest_pressed"]
 [connection signal="pressed" from="Screens/UserScreen/VBoxContainer/ObjectNaming" to="Screens/UserScreen" method="_on_ObjectNaming_pressed"]
-[connection signal="pressed" from="BottomButton/CreateAccount" to="Screens/LoginScreen" method="_on_CreateAccount_pressed"]
 [connection signal="pressed" from="BottomButton/Logout" to="." method="_on_Logout_pressed"]

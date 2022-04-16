@@ -3,15 +3,14 @@
 [ext_resource path="res://Resources/Styleboxes/PurpleButton.stylebox" type="StyleBox" id=1]
 [ext_resource path="res://Resources/fonts/Bungee-Regular-20.tres" type="DynamicFont" id=2]
 
-[node name="Back" type="Button"]
+[node name="SceneBottomButton" type="Button"]
 margin_left = 30.0
 margin_top = 730.0
 margin_right = 330.0
 margin_bottom = 781.0
-rect_min_size = Vector2( 300, 51 )
-size_flags_horizontal = 0
-size_flags_vertical = 10
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.666667, 0.623529, 0.792157, 1 )
 custom_fonts/font = ExtResource( 2 )
 custom_styles/normal = ExtResource( 1 )
-text = "BACK TO MENU"
+text = "Change Me"

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Resources/fonts/Bungee-Regular-32.tres" type="DynamicFont" id=1]
+
+[node name="SceneTitleLabel" type="Label"]
+anchor_right = 1.0
+margin_top = 37.0
+margin_bottom = 58.0
+custom_colors/font_color = Color( 0.356863, 0.333333, 0.427451, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "CHange ME!"
+align = 1
+uppercase = true
