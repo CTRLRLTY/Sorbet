@@ -18,7 +18,7 @@
 [ext_resource path="res://Resources/Styleboxes/UnderProgress.stylebox" type="StyleBox" id=16]
 [ext_resource path="res://Scenes/ObjectNaming/Modes.gd" type="Script" id=17]
 [ext_resource path="res://Scenes/ObjectNaming/TimerProgress.gd" type="Script" id=18]
-[ext_resource path="res://Resources/Icons/Star.png" type="Texture" id=19]
+[ext_resource path="res://Scenes/ObjectNaming/CenteredDialog.gd" type="Script" id=19]
 [ext_resource path="res://Resources/Styleboxes/PurpleButton.stylebox" type="StyleBox" id=20]
 [ext_resource path="res://Resources/Icons/restart.png" type="Texture" id=21]
 [ext_resource path="res://Resources/fonts/Bungee-Regular-15.tres" type="DynamicFont" id=22]
@@ -26,7 +26,7 @@
 [ext_resource path="res://Resources/Icons/checked_checkbox.png" type="Texture" id=24]
 [ext_resource path="res://Resources/Icons/cancel.png" type="Texture" id=25]
 [ext_resource path="res://Scenes/ObjectNaming/QuitDialog.gd" type="Script" id=26]
-[ext_resource path="res://Scenes/ObjectNaming/CenteredDialog.gd" type="Script" id=27]
+[ext_resource path="res://Resources/Icons/Star.png" type="Texture" id=27]
 [ext_resource path="res://Scenes/ObjectNaming/BottomButtons.gd" type="Script" id=28]
 [ext_resource path="res://Scenes/SceneBottomButton.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Resources/fonts/Bungee-Regular-36.tres" type="DynamicFont" id=30]
@@ -76,10 +76,10 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=19]
 bg_color = Color( 0.909804, 0.909804, 0.890196, 0.792157 )
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=13]
 bg_color = Color( 0.788235, 0.788235, 0.788235, 1 )
 border_width_left = 3
 border_width_top = 3
@@ -91,7 +91,7 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=14]
 bg_color = Color( 0.898039, 0.843137, 0.317647, 1 )
 border_width_left = 3
 border_width_top = 3
@@ -101,9 +101,9 @@ border_color = Color( 0.807843, 0.721569, 0.254902, 1 )
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 
-[sub_resource type="StyleBoxEmpty" id=9]
+[sub_resource type="StyleBoxEmpty" id=15]
 
-[sub_resource type="StyleBoxFlat" id=10]
+[sub_resource type="StyleBoxFlat" id=16]
 bg_color = Color( 0.67451, 0.819608, 0.466667, 1 )
 border_width_left = 3
 border_width_top = 3
@@ -115,7 +115,7 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=17]
 bg_color = Color( 0.921569, 0.341176, 0.341176, 1 )
 border_width_left = 3
 border_width_top = 3
@@ -127,7 +127,7 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=18]
 bg_color = Color( 0.788235, 0.788235, 0.788235, 1 )
 border_width_left = 3
 border_width_top = 3
@@ -177,9 +177,9 @@ rect_scale = Vector2( 1.00184, 1 )
 script = ExtResource( 12 )
 
 [node name="HBox" type="HBoxContainer" parent="Milestone"]
-margin_left = 44.0
+margin_left = 32.0
 margin_top = 2.0
-margin_right = 315.0
+margin_right = 327.0
 margin_bottom = 37.0
 custom_constants/separation = 0
 
@@ -582,8 +582,8 @@ size_flags_vertical = 3
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 5 )
-script = ExtResource( 27 )
+custom_styles/panel = SubResource( 19 )
+script = ExtResource( 19 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -611,20 +611,20 @@ __meta__ = {
 margin_right = 300.0
 margin_bottom = 51.0
 rect_min_size = Vector2( 0, 51 )
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 13 )
 script = ExtResource( 34 )
 
 [node name="LeftPanel" type="Panel" parent="CenteredDialog/OverDialog/VBox/PointGain"]
 margin_right = 51.0
 margin_bottom = 51.0
 rect_min_size = Vector2( 51, 51 )
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 14 )
 
 [node name="Star" type="TextureRect" parent="CenteredDialog/OverDialog/VBox/PointGain/LeftPanel"]
 modulate = Color( 0.980392, 0.988235, 0.701961, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 19 )
+texture = ExtResource( 27 )
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="CenteredDialog/OverDialog/VBox/PointGain"]
@@ -648,13 +648,13 @@ margin_top = 69.0
 margin_right = 300.0
 margin_bottom = 195.0
 rect_min_size = Vector2( 300, 126 )
-custom_styles/panel = SubResource( 9 )
+custom_styles/panel = SubResource( 15 )
 script = ExtResource( 33 )
 
 [node name="Gain" type="Panel" parent="CenteredDialog/OverDialog/VBox/Spanner"]
 margin_right = 300.0
 margin_bottom = 126.0
-custom_styles/panel = SubResource( 10 )
+custom_styles/panel = SubResource( 16 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -694,7 +694,7 @@ texture = ExtResource( 32 )
 visible = false
 margin_right = 300.0
 margin_bottom = 126.0
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 17 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -761,7 +761,7 @@ __meta__ = {
 margin_right = 300.0
 margin_bottom = 126.0
 rect_min_size = Vector2( 300, 126 )
-custom_styles/panel = SubResource( 8 )
+custom_styles/panel = SubResource( 18 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenteredDialog/QuitDialog/Panel"]
 anchor_left = 0.5

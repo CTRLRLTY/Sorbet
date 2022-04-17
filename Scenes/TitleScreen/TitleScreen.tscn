@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Resources/Title.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/TitleScreen/LoginScreen.gd" type="Script" id=2]
@@ -20,6 +20,8 @@
 [ext_resource path="res://Resources/fonts/Bungee-Regular-15.tres" type="DynamicFont" id=18]
 [ext_resource path="res://Scenes/TitleScreen/Score.gd" type="Script" id=19]
 [ext_resource path="res://Scenes/SceneBottomButton.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Resources/fonts/Bungee-Regular-12.tres" type="DynamicFont" id=21]
+[ext_resource path="res://Scenes/TitleScreen/ProfileDialog.gd" type="Script" id=22]
 
 [sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.788235, 0.788235, 0.788235, 1 )
@@ -76,6 +78,72 @@ corner_radius_bottom_left = 3
 [sub_resource type="StyleBoxEmpty" id=6]
 
 [sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0.909804, 0.909804, 0.890196, 0.792157 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.788235, 0.788235, 0.788235, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.6, 0.615686, 0.623529, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="Theme" id=23]
+default_font = ExtResource( 21 )
+Label/colors/font_color = Color( 0.768627, 0.768627, 0.768627, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=24]
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.415686, 0.427451, 0.431373, 1 )
+corner_radius_top_left = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+
+[sub_resource type="StyleBoxFlat" id=21]
+bg_color = Color( 0.415686, 0.427451, 0.435294, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxEmpty" id=22]
+
+[sub_resource type="StyleBoxFlat" id=27]
+bg_color = Color( 0.788235, 0.788235, 0.788235, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.52549, 0.537255, 0.545098, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
@@ -465,6 +533,163 @@ custom_colors/font_color = Color( 0.666667, 0.623529, 0.792157, 1 )
 custom_fonts/font = ExtResource( 5 )
 custom_styles/normal = ExtResource( 8 )
 text = "Profile"
+
+[node name="ProfileDialog" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 19 )
+script = ExtResource( 22 )
+
+[node name="CenterContainer" type="CenterContainer" parent="ProfileDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ProfileDialog/CenterContainer"]
+margin_left = 27.0
+margin_top = 259.0
+margin_right = 333.0
+margin_bottom = 541.0
+rect_min_size = Vector2( 300, 0 )
+custom_constants/separation = 12
+
+[node name="PanelContainer" type="PanelContainer" parent="ProfileDialog/CenterContainer/VBoxContainer"]
+margin_right = 306.0
+margin_bottom = 220.0
+rect_min_size = Vector2( 306, 220 )
+custom_styles/panel = SubResource( 13 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ProfileDialog/CenterContainer/VBoxContainer/PanelContainer"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 303.0
+margin_bottom = 217.0
+custom_constants/margin_top = -46
+
+[node name="VBox" type="VBoxContainer" parent="ProfileDialog/CenterContainer/VBoxContainer/PanelContainer/MarginContainer"]
+margin_top = -46.0
+margin_right = 300.0
+margin_bottom = 214.0
+custom_constants/separation = 14
+
+[node name="Profile" type="PanelContainer" parent="ProfileDialog/CenterContainer/VBoxContainer/PanelContainer/MarginContainer/VBox"]
+margin_left = 87.0
+margin_right = 212.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 125, 125 )
+size_flags_horizontal = 6
+custom_styles/panel = SubResource( 14 )
+
+[node name="Info" type="VBoxContainer" parent="ProfileDialog/CenterContainer/VBoxContainer/PanelContainer/MarginContainer/VBox"]
+margin_left = 15.0
+margin_top = 139.0
+margin_right = 285.0
+margin_bottom = 239.0
+rect_min_size = Vector2( 270, 0 )
+size_flags_horizontal = 6
+custom_constants/separation = 5
+
+[node name="Username" type="Label" parent="ProfileDialog/CenterContainer/VBoxContainer/PanelContainer/MarginContainer/VBox/Info"]
+margin_right = 270.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 0, 38 )
+custom_colors/font_color = Color( 0.788235, 0.788235, 0.788235, 1 )
+custom_fonts/font = ExtResource( 18 )
+custom_styles/normal = SubResource( 15 )
+text = "@USERNAME"
+align = 1
+valign = 1
+
+[node name="Rank" type="Label" parent="ProfileDialog/CenterContainer/VBoxContainer/PanelContainer/MarginContainer/VBox/Info"]
+margin_top = 43.0
+margin_right = 270.0
+margin_bottom = 69.0
+rect_min_size = Vector2( 0, 26 )
+custom_colors/font_color = Color( 0.788235, 0.788235, 0.788235, 1 )
+custom_fonts/font = ExtResource( 21 )
+custom_styles/normal = SubResource( 15 )
+text = "Rank #000"
+align = 1
+valign = 1
+
+[node name="Level" type="Panel" parent="ProfileDialog/CenterContainer/VBoxContainer/PanelContainer/MarginContainer/VBox/Info"]
+margin_top = 74.0
+margin_right = 270.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 26 )
+theme = SubResource( 23 )
+custom_styles/panel = SubResource( 24 )
+
+[node name="Number" type="Label" parent="ProfileDialog/CenterContainer/VBoxContainer/PanelContainer/MarginContainer/VBox/Info/Level"]
+margin_right = 39.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 39, 0 )
+size_flags_vertical = 1
+custom_styles/normal = SubResource( 16 )
+text = "18"
+align = 1
+valign = 1
+
+[node name="ProgressBar" type="PanelContainer" parent="ProfileDialog/CenterContainer/VBoxContainer/PanelContainer/MarginContainer/VBox/Info/Level"]
+margin_left = 39.0
+margin_right = 270.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 20 )
+
+[node name="Margin" type="MarginContainer" parent="ProfileDialog/CenterContainer/VBoxContainer/PanelContainer/MarginContainer/VBox/Info/Level/ProgressBar"]
+margin_right = 231.0
+margin_bottom = 26.0
+custom_constants/margin_right = 7
+custom_constants/margin_top = 5
+custom_constants/margin_left = 7
+custom_constants/margin_bottom = 5
+
+[node name="ProgressBar" type="ProgressBar" parent="ProfileDialog/CenterContainer/VBoxContainer/PanelContainer/MarginContainer/VBox/Info/Level/ProgressBar/Margin"]
+margin_left = 7.0
+margin_top = 5.0
+margin_right = 224.0
+margin_bottom = 21.0
+size_flags_vertical = 1
+custom_styles/fg = SubResource( 21 )
+custom_styles/bg = SubResource( 22 )
+value = 100.0
+percent_visible = false
+
+[node name="Label" type="Label" parent="ProfileDialog/CenterContainer/VBoxContainer/PanelContainer/MarginContainer/VBox/Info/Level"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -6.5
+margin_right = 50.0
+margin_bottom = 6.5
+text = "00000 / 00000"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="Logout" type="Button" parent="ProfileDialog/CenterContainer/VBoxContainer"]
+margin_top = 232.0
+margin_right = 306.0
+margin_bottom = 282.0
+rect_min_size = Vector2( 0, 50 )
+custom_colors/font_color_focus = Color( 0.6, 0.615686, 0.623529, 1 )
+custom_colors/font_color = Color( 0.6, 0.615686, 0.623529, 1 )
+custom_colors/font_color_hover = Color( 0.6, 0.615686, 0.623529, 1 )
+custom_colors/font_color_pressed = Color( 0.6, 0.615686, 0.623529, 1 )
+custom_fonts/font = ExtResource( 5 )
+custom_styles/hover = SubResource( 27 )
+custom_styles/pressed = SubResource( 27 )
+custom_styles/focus = SubResource( 27 )
+custom_styles/normal = SubResource( 27 )
+text = "Logout"
+
+[node name="Back" parent="ProfileDialog" instance=ExtResource( 20 )]
+text = "Back"
 
 [connection signal="pressed" from="Screens/LoginScreen/Main/Guest" to="." method="_on_Guest_pressed"]
 [connection signal="pressed" from="Screens/UserScreen/VBoxContainer/ObjectNaming" to="Screens/UserScreen" method="_on_ObjectNaming_pressed"]
