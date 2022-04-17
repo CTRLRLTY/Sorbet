@@ -2,7 +2,7 @@ extends PanelContainer
 
 
 onready var create_account: Button = $CreateAccount
-onready var logout: Button = $Logout
+onready var profile: Button = $Profile
 
 
 func show_button(btn: Button) -> void:

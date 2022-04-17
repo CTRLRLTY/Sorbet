@@ -449,24 +449,23 @@ custom_styles/panel = SubResource( 7 )
 script = ExtResource( 15 )
 
 [node name="CreateAccount" parent="BottomButton" instance=ExtResource( 20 )]
+visible = false
 margin_left = 0.0
 margin_top = 0.0
 margin_right = 300.0
 margin_bottom = 51.0
 text = "Create Account"
 
-[node name="Logout" type="Button" parent="BottomButton"]
-visible = false
-margin_right = 230.0
-margin_bottom = 64.0
+[node name="Profile" type="Button" parent="BottomButton"]
+margin_right = 300.0
+margin_bottom = 51.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.666667, 0.623529, 0.792157, 1 )
 custom_fonts/font = ExtResource( 5 )
 custom_styles/normal = ExtResource( 8 )
-text = "Logout"
+text = "Profile"
 
 [connection signal="pressed" from="Screens/LoginScreen/Main/Guest" to="." method="_on_Guest_pressed"]
 [connection signal="pressed" from="Screens/UserScreen/VBoxContainer/ObjectNaming" to="Screens/UserScreen" method="_on_ObjectNaming_pressed"]
 [connection signal="pressed" from="Screens/UserScreen/VBoxContainer/Leaderboard" to="Screens/UserScreen" method="_on_Leaderboard_pressed"]
-[connection signal="pressed" from="BottomButton/Logout" to="." method="_on_Logout_pressed"]

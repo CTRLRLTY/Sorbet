@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func _on_Guest_pressed() -> void:
 	screens.show_screen(screens.user_screen)
-	bottom_button.show_button(bottom_button.logout)
+	bottom_button.show_button(bottom_button.profile)
 	
 	RuntimeManager.login = true
 
