@@ -218,8 +218,8 @@ valign = 1
 clip_text = true
 
 [node name="Language" type="Button" parent="Top"]
-margin_left = 233.0
-margin_right = 340.0
+margin_left = 232.0
+margin_right = 339.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 107, 32 )
 mouse_default_cursor_shape = 2
@@ -535,6 +535,7 @@ custom_styles/normal = ExtResource( 8 )
 text = "Profile"
 
 [node name="ProfileDialog" type="Panel" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 19 )
@@ -694,3 +695,7 @@ text = "Back"
 [connection signal="pressed" from="Screens/LoginScreen/Main/Guest" to="." method="_on_Guest_pressed"]
 [connection signal="pressed" from="Screens/UserScreen/VBoxContainer/ObjectNaming" to="Screens/UserScreen" method="_on_ObjectNaming_pressed"]
 [connection signal="pressed" from="Screens/UserScreen/VBoxContainer/Leaderboard" to="Screens/UserScreen" method="_on_Leaderboard_pressed"]
+[connection signal="pressed" from="BottomButton/Profile" to="." method="_on_Profile_pressed"]
+[connection signal="pressed" from="ProfileDialog/CenterContainer/VBoxContainer/Logout" to="." method="_on_Logout_pressed"]
+[connection signal="pressed" from="ProfileDialog/CenterContainer/VBoxContainer/Logout" to="ProfileDialog" method="_on_Logout_pressed"]
+[connection signal="pressed" from="ProfileDialog/Back" to="ProfileDialog" method="_on_Back_pressed"]
