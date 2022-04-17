@@ -91,6 +91,7 @@ margin_bottom = 573.0
 rect_min_size = Vector2( 0, 529 )
 mouse_default_cursor_shape = 2
 theme = SubResource( 3 )
+scroll_horizontal_enabled = false
 
 [node name="Page" type="VBoxContainer" parent="Main/ScrollContainer"]
 margin_right = 306.0
