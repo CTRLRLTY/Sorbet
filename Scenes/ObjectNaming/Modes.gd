@@ -74,9 +74,6 @@ func reset() -> void:
 	for gm in get_tree().get_nodes_in_group("GameMode"):
 		if gm.has_method("reset"):
 			gm.reset()
-	
-	_life_node.reset()
-	
 
 
 func _on_passed() -> void:
@@ -100,3 +97,5 @@ func _on_failed() -> void:
 	
 	if failed:
 		emit_signal("failed")
+		
+		_life_node.reset()
