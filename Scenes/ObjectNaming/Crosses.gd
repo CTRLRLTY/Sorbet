@@ -5,12 +5,17 @@ export var CrossFilledTexture: Texture
 
 var cross := 0 setget set_cross
 
+
 func count() -> int:
 	return get_child_count()
 	
 
 func maxed() -> bool:
 	return cross == get_child_count()
+
+
+func reset() -> void:
+	set_cross(0)
 
 
 func set_cross(amount: int) -> void:

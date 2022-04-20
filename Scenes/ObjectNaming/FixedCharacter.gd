@@ -7,7 +7,6 @@ var answer: String
 
 onready var filled: Label = $Filled
 onready var characters: Control = $Characters
-onready var crosses: Control = $Crosses
 
 
 func _ready() -> void:
@@ -17,20 +16,10 @@ func _ready() -> void:
 func initiate(answer: String, NAME_LIST: Array) -> void:
 	self.answer = answer
 	
-	var max_fill_scale := 0.8
-	
 	var btn_count: int = char_count()
 	
-	var trailing := max(0, answer.length() - btn_count)
-	
-	var min_filled: int = randi() % crosses.count()
-	var max_filled: int = floor(min(answer.length(), btn_count) * max_fill_scale)
-	
-	var initial_fill := randi() % max_filled
-	var min_fill := abs(initial_fill - min_filled)
-	var total_fill := initial_fill + trailing + min_fill
-	
-#	print_debug(min_filled, " ", min_fill, " ", max_filled, " ", initial_fill, " ", total_fill)
+	var trailing := min(answer.length() - btn_count, 0)
+	var total_fill := (randi() % btn_count) + trailing
 	
 	var filled_index := []
 	
@@ -74,8 +63,6 @@ func initiate(answer: String, NAME_LIST: Array) -> void:
 func reset() -> void:
 	for btn in characters.button_group.get_buttons():
 		btn.disabled = false
-	
-	crosses.cross = 0
 
 
 func set_characters(chars: PoolStringArray) -> void:
@@ -110,7 +97,4 @@ func _on_character_selected(c: String) -> void:
 		if filled.complete():
 			emit_signal("passed")
 	else:
-		crosses.cross += 1
-		
-		if crosses.maxed():
 			emit_signal("failed")

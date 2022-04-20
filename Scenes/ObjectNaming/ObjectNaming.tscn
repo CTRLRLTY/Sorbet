@@ -177,9 +177,9 @@ rect_scale = Vector2( 1.00184, 1 )
 script = ExtResource( 12 )
 
 [node name="HBox" type="HBoxContainer" parent="Milestone"]
-margin_left = 32.0
+margin_left = 44.0
 margin_top = 2.0
-margin_right = 327.0
+margin_right = 315.0
 margin_bottom = 37.0
 custom_constants/separation = 0
 
@@ -191,7 +191,91 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="MultiChoice" type="Control" parent="Modes"]
+[node name="Life" type="CenterContainer" parent="Modes"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = -370.0
+margin_right = 144.0
+margin_bottom = -316.0
+
+[node name="Crosses" type="HBoxContainer" parent="Modes/Life" groups=["LifeNode"]]
+margin_left = 78.0
+margin_right = 209.0
+margin_bottom = 54.0
+custom_constants/separation = 23
+script = ExtResource( 14 )
+CrossEmptyTexture = ExtResource( 3 )
+CrossFilledTexture = ExtResource( 37 )
+
+[node name="Cross" type="TextureRect" parent="Modes/Life/Crosses"]
+margin_right = 54.0
+margin_bottom = 54.0
+texture = ExtResource( 3 )
+
+[node name="Cross2" type="TextureRect" parent="Modes/Life/Crosses"]
+margin_left = 77.0
+margin_right = 131.0
+margin_bottom = 54.0
+texture = ExtResource( 3 )
+
+[node name="TimerProgress" type="HBoxContainer" parent="Modes/Life" groups=["LifeNode"]]
+margin_left = 7.0
+margin_top = 3.0
+margin_right = 281.0
+margin_bottom = 51.0
+custom_constants/separation = 20
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="HourGlassIcon" type="TextureRect" parent="Modes/Life/TimerProgress"]
+margin_right = 48.0
+margin_bottom = 48.0
+texture = ExtResource( 7 )
+
+[node name="ProgressBar" type="PanelContainer" parent="Modes/Life/TimerProgress"]
+margin_left = 68.0
+margin_top = 10.0
+margin_right = 274.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 200, 21 )
+size_flags_vertical = 6
+custom_styles/panel = ExtResource( 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TimerBar" type="TextureProgress" parent="Modes/Life/TimerProgress/ProgressBar"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 203.0
+margin_bottom = 24.0
+max_value = 8.0
+step = 0.01
+value = 8.0
+texture_progress = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="Modes/Life/TimerProgress/ProgressBar/TimerBar"]
+one_shot = true
+
+[node name="Label" type="Label" parent="Modes/Life/TimerProgress/ProgressBar/TimerBar"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -10.5
+margin_right = 20.0
+margin_bottom = 10.5
+custom_colors/font_color = Color( 0.356863, 0.333333, 0.427451, 1 )
+custom_fonts/font = ExtResource( 13 )
+
+[node name="MultiChoice" type="Control" parent="Modes" groups=["GameMode"]]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
@@ -300,65 +384,7 @@ custom_styles/pressed = SubResource( 3 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/normal = SubResource( 3 )
 
-[node name="TimerProgress" type="HBoxContainer" parent="Modes/MultiChoice"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -134.0
-margin_top = -367.0
-margin_right = 134.0
-margin_bottom = -319.0
-custom_constants/separation = 20
-script = ExtResource( 18 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="HourGlassIcon" type="TextureRect" parent="Modes/MultiChoice/TimerProgress"]
-margin_right = 48.0
-margin_bottom = 48.0
-texture = ExtResource( 7 )
-
-[node name="ProgressBar" type="PanelContainer" parent="Modes/MultiChoice/TimerProgress"]
-margin_left = 68.0
-margin_top = 10.0
-margin_right = 274.0
-margin_bottom = 37.0
-rect_min_size = Vector2( 200, 21 )
-size_flags_vertical = 6
-custom_styles/panel = ExtResource( 16 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="TimerBar" type="TextureProgress" parent="Modes/MultiChoice/TimerProgress/ProgressBar"]
-margin_left = 3.0
-margin_top = 3.0
-margin_right = 203.0
-margin_bottom = 24.0
-max_value = 8.0
-step = 0.01
-value = 8.0
-texture_progress = ExtResource( 6 )
-script = ExtResource( 2 )
-
-[node name="Timer" type="Timer" parent="Modes/MultiChoice/TimerProgress/ProgressBar/TimerBar"]
-one_shot = true
-
-[node name="Label" type="Label" parent="Modes/MultiChoice/TimerProgress/ProgressBar/TimerBar"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -10.5
-margin_right = 20.0
-margin_bottom = 10.5
-custom_colors/font_color = Color( 0.356863, 0.333333, 0.427451, 1 )
-custom_fonts/font = ExtResource( 13 )
-
-[node name="FixedCharacter" type="Control" parent="Modes"]
+[node name="FixedCharacter" type="Control" parent="Modes" groups=["GameMode"]]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -366,31 +392,6 @@ script = ExtResource( 36 )
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Crosses" type="HBoxContainer" parent="Modes/FixedCharacter"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -65.5
-margin_top = -372.0
-margin_right = 65.5
-margin_bottom = -318.0
-custom_constants/separation = 23
-script = ExtResource( 14 )
-CrossEmptyTexture = ExtResource( 3 )
-CrossFilledTexture = ExtResource( 37 )
-
-[node name="Cross" type="TextureRect" parent="Modes/FixedCharacter/Crosses"]
-margin_right = 54.0
-margin_bottom = 54.0
-texture = ExtResource( 3 )
-
-[node name="Cross2" type="TextureRect" parent="Modes/FixedCharacter/Crosses"]
-margin_left = 77.0
-margin_right = 131.0
-margin_bottom = 54.0
-texture = ExtResource( 3 )
 
 [node name="Characters" type="VBoxContainer" parent="Modes/FixedCharacter"]
 anchor_left = 0.5

@@ -10,8 +10,6 @@ var _session_var := {
 
 
 func _ready() -> void:
-	OS.low_processor_usage_mode = true
-	
 	_setup_client(10)
 
 
@@ -34,9 +32,9 @@ func login_device() -> void:
 	if session.is_exception():
 		print_debug("Device login failed: %s" % session)
 		
-		return
-	
-	RuntimeManager.login = true
+		RuntimeManager.login = false
+	else:
+		RuntimeManager.login = true
 
 
 func refresh_session():
