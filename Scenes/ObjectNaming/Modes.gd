@@ -65,9 +65,13 @@ func play_random(answer: String, NAME_LIST: Array) -> void:
 
 
 func pause() -> void:
-	for child in get_children():
-		if child.has_method("pause"):
-			child.pause()
+	var groups := ["GameMode", "LifeNode"]
+	
+	for group in groups:
+		for node in get_tree().get_nodes_in_group(group):
+			print_debug(node.name)
+			if node.has_method("pause"):
+				node.pause()
 
 
 func reset() -> void:
@@ -85,7 +89,7 @@ func _on_passed() -> void:
 
 func _on_failed() -> void:
 	var failed := false
-	
+
 	if _life_node == timer_progress:
 		timer_progress.time -= 3.0
 		

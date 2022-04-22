@@ -100,7 +100,8 @@ _global_script_class_icons={
 
 config/name="Sorbet"
 run/main_scene="res://Scenes/TitleScreen/TitleScreen.tscn"
-boot_splash/image="res://Resources/SplashScreen.png"
+boot_splash/image="res://Resources/Splash.png"
+boot_splash/bg_color=Color( 0.917647, 0.913725, 0.886275, 1 )
 config/icon="res://icon.png"
 
 [autoload]
