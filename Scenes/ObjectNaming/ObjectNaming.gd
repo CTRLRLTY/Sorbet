@@ -112,6 +112,7 @@ func set_milestone_position(pos: int) -> void:
 	else:
 		randomize_object()
 		
+		
 		modes.play_random(object_name, NAME_LIST)
 
 
