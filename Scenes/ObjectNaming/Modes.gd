@@ -38,6 +38,8 @@ func _ready() -> void:
 	
 	if _life_node == timer_progress:
 		timer_progress.start()
+		
+		timer_progress.connect("timeout", self, "fail")
 
 
 func play(game_mode: int, answer: String, NAME_LIST: Array) -> void:
@@ -74,6 +76,12 @@ func pause() -> void:
 				node.pause()
 
 
+func fail() -> void:
+	emit_signal("failed")
+	
+	_life_node.reset()
+
+
 func reset() -> void:
 	for gm in get_tree().get_nodes_in_group("GameMode"):
 		if gm.has_method("reset"):
@@ -100,6 +108,4 @@ func _on_failed() -> void:
 		failed = crosses.maxed()
 	
 	if failed:
-		emit_signal("failed")
-		
-		_life_node.reset()
+		fail()

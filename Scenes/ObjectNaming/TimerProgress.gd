@@ -24,8 +24,6 @@ func start(time_sec := timer_bar.max_value) -> void:
 	
 		return
 	
-	print_debug(timer.wait_time)
-	
 	set_process(true)
 	
 	timer.start(time_sec)
